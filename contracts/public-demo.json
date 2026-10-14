@@ -1,0 +1,10 @@
+{
+  "schema": "local-integrity/v1",
+  "scope": "public-demo",
+  "files": [
+    {
+      "path": "src/shared/centavos-demo.mjs",
+      "sha256": "f6c49908e50065dc489dfb1967203d232e664503195dbb96924ac62d03ea777f"
+    }
+  ]
+}
