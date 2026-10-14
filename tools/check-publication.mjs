@@ -21,3 +21,12 @@ for (const name of files) {
   for (const [label,regex] of contentRules) if (regex.test(source)) throw new Error(label+' encontrado em '+name);
 }
 console.log('PUBLIC_GUARD=PASS (arquivos atuais); historico requer revisao adicional.');
+
+
+ 
+// P4.1 em analise: nenhuma fonte originada dos repositorios privados
+// pode entrar em components/ sem uma liberacao previamente validada.
+const pendingPrivateComponents = files.filter(name => /^components\//.test(name));
+if (pendingPrivateComponents.length !== 0) {
+  throw new Error('P4_PUBLICATION_BLOCKED: publication of reviewed source is not authorized in this channel');
+}
