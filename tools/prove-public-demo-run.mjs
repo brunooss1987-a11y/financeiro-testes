@@ -33,7 +33,9 @@ function demoTestDigest() {
  * No arbitrary command/path arguments, no network code, no private inputs, no output artifacts.
  */
 export function runPublicDemoEvidence() {
-  const manifest = JSON.parse(readFileSync(new URL('../contracts/public-demo.json', import.meta.url), 'utf8'));
+  const manifestUrl = new URL('../contracts/public-demo.json', import.meta.url);
+  const manifestBefore = readFileSync(manifestUrl);
+  const manifest = JSON.parse(manifestBefore.toString('utf8'));
   if (manifest.files?.length !== 1 || manifest.files[0]?.path !== SOURCE_PATH) {
     throw new Error('PUBLIC_DEMO_CONTRACT_NOT_PINNED');
   }
@@ -55,8 +57,9 @@ export function runPublicDemoEvidence() {
     }
   });
   const sourceAfter = checkLocalContract(manifest, { root: ROOT });
+  const manifestAfter = readFileSync(manifestUrl);
   const testAfter = demoTestDigest();
-  if (testBefore !== testAfter || sourceBefore.status !== sourceAfter.status) {
+  if (testBefore !== testAfter || digest(manifestBefore) !== digest(manifestAfter) || sourceBefore.status !== sourceAfter.status) {
     throw new Error('PUBLIC_DEMO_CHANGED_DURING_TEST');
   }
   if (result.error || typeof result.status !== 'number') {
