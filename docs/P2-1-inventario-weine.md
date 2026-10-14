@@ -4,15 +4,15 @@
 
 ## Fonte e escopo examinado
 - Weine (repositorio privado), branch principal: arvore com 59 arquivos. Revisados fluxos de validacao e testes WAC.
-- PR privado #105 (E1.4, DRAFT, nao mesclado), head no momento da auditoria: `703f3d8ea6824eef413742634084d590207483e5`, arvore com 79 arquivos. Revisados guards, tests offline, snapshot e rotinas remotas.
-- PR privado #107 (E-DIV.2, DRAFT, nao mesclado), head no momento da auditoria: `0bb39a39dca9c460f08505960cc9e54f66db805f`, arvore com 89 arquivos. Revisados harnesses de simulacao, protecao de arquivos, replay, rollback e testes de ligacao.
+- PR privado [numero de PR privado suprimido] (E1.4, DRAFT, nao mesclado), head no momento da auditoria: `[identificador de commit/objeto privado suprimido]`, arvore com 79 arquivos. Revisados guards, tests offline, snapshot e rotinas remotas.
+- PR privado [numero de PR privado suprimido] (E-DIV.2, DRAFT, nao mesclado), head no momento da auditoria: `[identificador de commit/objeto privado suprimido]`, arvore com 89 arquivos. Revisados harnesses de simulacao, protecao de arquivos, replay, rollback e testes de ligacao.
 - Inventario e triagem sao limitados aos arquivos e versoes mencionados: nao substituem varredura integral de todos os commits historicos nem auditoria de vulnerabilidades.
 
 ## Candidato selecionado — PUBLICAVEL SOMENTE APOS GATE P4.1
 | Origem privada | Git blob SHA exato | Condicao |
 |---|---|---|
-| `lab-e14/overwrite-guard.mjs` | `148666fc3ee4dd5de1fa38843a24226a98c89986` | Funcao pura com import exclusivo `node:crypto`; sem rede, Google API, credenciais, ID de planilha ou escrita |
-| `lab-e14/overwrite-guard-test.mjs` | `6bff970930553d85c1d7faa7c478cc80a37c460b` | `node:assert/strict` e `node:crypto`, fixtures inteiramente artificiais, importa o modulo acima |
+| `lab-e14/overwrite-guard.mjs` | `[identificador de commit/objeto privado suprimido]` | Funcao pura com import exclusivo `node:crypto`; sem rede, Google API, credenciais, ID de planilha ou escrita |
+| `lab-e14/overwrite-guard-test.mjs` | `[identificador de commit/objeto privado suprimido]` | `node:assert/strict` e `node:crypto`, fixtures inteiramente artificiais, importa o modulo acima |
 
 **Prova executada:** arquivos baixados pela conta GitHub autorizada para diretorio temporario no computador do proprietario; SHA do objeto Git recalculado para cada arquivo e comparado com o GitHub; `node overwrite-guard-test.mjs` concluiu com exit code 0 e mensagem de **7 verificacoes aprovadas**; diretorio temporario foi removido em bloco `finally`. Nenhum token foi exibido, nenhum job GitHub privado foi disparado, nenhuma implantacao executada.
 
@@ -37,3 +37,6 @@
 
 ## Proximo passo
 **P3.1 — Inventariar e selecionar testes offline da Casa Santana**, com revisao independente dos 608 arquivos da arvore principal, com prioridade em testes `node` isolados e sem dados reais. Nao reexecutar o piloto P0 nem a protecao P1; P2.1 foi apenas selecao e verificacao privada do candidato.
+
+
+**Protecao posterior do registro publico (14/10/2026):** identificadores de commits e blobs privados foram suprimidos da versao corrente, sem alterar o resultado historico da triagem. As evidencias completas devem ser verificadas exclusivamente no ambiente privado autorizado. O historico Git publico anterior nao foi reescrito, e essa alteracao nao equivale a remocao historica.
