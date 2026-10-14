@@ -58,7 +58,7 @@ test('E-OBS.1: resumo Markdown aceita somente rotulos predefinidos e numeros', (
   const rendered = formatPublicStepSummary('weine', summary, true);
   assert.match(rendered, /Piloto weine/);
   assert.match(rendered, /\| PASS \| 3 \| 3 \| 0 \|/);
-  assert.match(rendered, /nao comprova L1\/L2 privados/);
+  assert.match(rendered, /nao comprova L1\/L2 privados/i);
   assert.doesNotMatch(rendered, /TAP version|duration_ms|Subtest/);
 });
 
