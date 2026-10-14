@@ -1,6 +1,6 @@
 # E-OBS.1 — Resumo verificavel dos testes da CI publica
 
-**Data:** 2026-10-14. **Estado inicial:** IMPLEMENTADO EM BRANCH; PR, checks e readback da main ainda necessarios para VALIDADO.
+**Data:** 2026-10-14. **Estado final:** IMPLEMENTADO E VALIDADO nos tres checks do hub publico; resumo renderizado na interface do GitHub nao foi inspecionado visualmente.
 
 ## 1. Escopo e lacuna real
 
@@ -33,6 +33,16 @@ A CI publica do hub tem 3 checks obrigatorios, e as contagens dos testes estavam
 
 Expansao **E-OBS.1: 1,00h**, declarada ANTES de alterar o codigo em ROADMAP.md. Baseline E-TEST anteriormente: 7,00h (6,00h validadas = **85,71%**). Novo baseline explicito: **8,00h**. Antes da validacao: **6,00/8,00h = 75,00% concluido | 25,00% restante**. Depois da validacao E-OBS.1: **7,00/8,00h = 87,50% concluido | 12,50% restante**. As ultimas 1,00h sao a P4.1, que nao foi concluida. Historico da Weine (15h F0-F16 100%; 19h F0-F16+E1 92,11%) INALTERADO. E-INFRA-L2 10–16h ADIADA e NAO incorporada.
 
-## 5. Proxima acao — sujeita a verificacao
+## 5. Evidencia de validacao
 
-Verificar PR e logs dos 3 checks; corrigir qualquer falso PASS ou ausencia de summary sem enfraquecer o scanner; so depois incorporar, confirmar CI pos-merge e atualizar o status E-OBS.1 VALIDADA em ROADMAP/HANDOFF. Proibido repetir E-SEC.1, publicar codigo privado ou alterar arquivos financeiros.
+- PR #20 incorporado em `0a0e79684084ac3684d1aa9e650fd9f4ad4e986e`.
+- Na primeira CI `38626646976`, um teste de formato falhou devido a capitalizacao. O runner registrou FAIL e o gate bloqueou as suites seguintes. Corrigiu-se apenas a expectativa textual.
+- Na CI corrigida da branch `38626735973`, tres checks SUCCESS.
+- Na CI pos-merge da main `38626836853`, tres checks SUCCESS; Gate 20/20, Weine 13/13 e Casa Santana 12/12. Logs apresentam os tres marcadores `PUBLIC_CI_SUMMARY=PASS` e `PUBLIC_GUARD=PASS`.
+- Os arquivos finais foram relidos na main; nenhuma fonte privada ou artefato de upload adicionado.
+- **Limite observacional:** logs indicam conclusao do runner sem erros de gravacao; nao ha leitura visual da area Step Summary por esta integracao. Nao confundir verificacao tecnica do mecanismo com inspeção de layout.
+- E-OBS.1 validada **1/1h = 100%**, novo E-TEST **7/8h = 87,50% concluido / 12,50% restante**; P4.1 continua pendente.
+
+## 6. Proxima acao — sujeita a verificacao
+
+Conferir publicacao desta validacao documental e manter as tres suites publicas sem regressao. Futuras melhorias requerem lacuna nova e esforco recalculado previamente. Nenhum atestado L1/L2 privado foi criado.
