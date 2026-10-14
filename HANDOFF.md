@@ -45,8 +45,16 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - Conjuntos que dependem de `src/`, Google, OAuth, dados, backups ou integrações reais permanecem privados ou exigem revisao individual. Documento auditavel `docs/P3-1-inventario-casa-santana.md` no hub publico tem detalhes, sem codigo-fonte confidencial.
 - P3.1 VALIDADA como INVENTARIO/SELECAO, NAO PUBLICACAO/INTEGRACAO. P3: 100% concluida / 0% restante. E-TEST 5,00/6,00h = 83,33% concluido / 16,67% restante. Progresso historico Weine 92,11% inalterado. P4.1 PENDENTE.
 
+## P4.1 — VERIFICACAO PARCIAL / RESTRICAO CONFIRMADA — 2026-10-14
+
+- Revalidado por leitura: as quatro fontes offline selecionadas continuam com os mesmos hashes registrados em P2.1/P3.1. Protecao da main do hub, os tres checks obrigatorios e as permissoes minimas foram reconfirmados.
+- A publicacao de codigo da origem privada no hub foi recusada pela politica de seguranca da plataforma. Operacao NAO executada e NAO repetida por outros caminhos. Arvore da branch foi lida: zero arquivos em components/.
+- Medidas seguras na branch de revisao: controle fail-closed em tools/check-publication.mjs para nao aceitar components/ e manifesto com APENAS metadados de proveniencia em docs/P4-1-proveniencia-pendente.json. Nenhuma fonte privada foi publicada. Isso precisa passar pelos checks do PR antes de ser considerado validado na main.
+- P4.1 permanece EM EXECUCAO / BLOQUEADA. Nao atribuir progresso da subfase, nem interpretar os testes ficticios como E2E real.
+- E-TEST mantida em 5,00h/6,00h, 83,33% concluida e 16,67% restante. Baseline historico da Weine 19h/92,11% inalterado.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Verificar estado REAL do PR de P3.1, protecao de branch, checks e arquivo do inventario na main. Se tudo validado, nao repetir P0, P1, P2, P3.
-2. P4.1: conferir versao ATUAL dos candidatos privados em Weine e Casa Santana por leitura, revisar diffs integrais e classificar como publicaveis ou bloqueados. Nunca transmitir credenciais, IDs operacionais, dados reais, log financeiro, snapshots ou repositorios privados completos ao hub.
-3. Se a revisao final dos pares for aprovada e os controles continuarem ativos, planejar/publicar SOMENTE os arquivos necessarios via pull request com manifesto de proveniencia (repo privado + nome de arquivo + SHA exato), e provar tres checks publicos PASS antes e depois de merge. Caso contrario, registrar bloqueio real e nao simular progresso.
-4. Nao tratar sucesso offline como homologacao de planilha Apps Script. Preservar roadmap historico Weine 19h / 92,11% e os baselines da Casa Santana. Atualizar este HANDOFF e ROADMAP somente apos validacao real da P4.1, mantendo esta secao final com o mesmo titulo.
+1. Verificar PR, diff, gate preventivo e manifesto de metadados da branch P4.1; se os tres jobs aprovarem, incorporar somente documentacao/guardas e confirmar leitura da main.
+2. Manter o bloqueio da transferencia de fontes privadas. Nao tentar outro meio para contornar a recusa.
+3. Avaliar autonomamente alternativas nao invasivas para testes do codigo real sem publicacao das fontes privadas, priorizando execucao isolada no ambiente privado e testes genericos publicos. Antes de eventual mudanca de arquitetura, estimar esforco e apresentar expansao de escopo sem alterar silenciosamente os percentuais.
+4. P4.1 permanece pendente ate que a solucao aprovada comprove integracao verdadeira e rastreavel; preservar planilhas, codigo e repositorios privados.
