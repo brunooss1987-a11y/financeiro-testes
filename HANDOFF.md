@@ -64,8 +64,16 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - Nenhuma alteracao em planilhas, Apps Script ou nos dois repositorios privados; nenhuma tentativa de resolver faturamento, nenhuma transferencia bloqueada foi repetida.
 - P4.1 EM EXECUCAO/PARCIAL, nao concluida. E-TEST 5,00/6,00h = 83,33% concluida / 16,67% restante; historico Weine 92,11% inalterado.
 
+## P4.1 — RELEITURA FINAL DO CONTRATO PUBLICO NA MAIN
+
+- PR #6 de verificacao offline por SHA-256 foi incorporado: https://github.com/brunooss1987-a11y/financeiro-testes/pull/6, commit `f637c96cf785255ee2d6886004487d74b0ad3e99`. Os cinco arquivos adicionados sao de codigo e dados demonstrativos publicos, nao provenientes dos repositorios financeiros privados.
+- Evidencia apos merge: GitHub Actions https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/38586277288 `completed/success`; Gate de publicacao SUCCESS, Piloto weine 12/12 PASS, Piloto casa-santana 11/11 PASS (0 fail), confirmados na API e em logs de jobs.
+- Releitura da main confirmou `tools/check-local-contract.mjs`, `contracts/public-demo.json`, ambos os testes, ROADMAP e este HANDOFF; arvore publica sem pasta `components/` ou arquivos de motores financeiros privados. PR #4 permanece ABERTO, sem merge, e NAO deve ser repetido.
+- Evidencia limitada a hash de arquivo demonstrativo publico; nao atesta versao, execucao, calculos, autorizacao, operacoes ou Google Sheets dos sistemas reais.
+- P4.1 ainda EM EXECUCAO/PARCIAL. E-TEST permanece 5,00/6,00h = 83,33% concluido | 16,67% restante. Weine historica 19h/92,11% inalterada.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Verificar se o PR #6 do hub ja foi incorporado e se os tres checks da versao ATUAL da main passaram. Se PR aberto e checks exigidos completos, incorporar apenas essa suite DEMONSTRATIVA por merge normal; se houver recusa de seguranca, nao tentar outro metodo. Confirmar que nao houve transferencia de arquivos privados ou alteracao da protecao de main.
-2. Preservar o PR #4 bloqueado ABERTO e separado; nunca tentar repetir sua publicacao/merge por outro canal.
-3. A proxima frente P4.1 deve desenhar prova de identidade de **fonte privada real** que vincule hash, commit, teste executado e ambiente confiavel, SOMENTE em ambiente privado autorizado; o validador publico atual nao oferece essa prova. Nunca importar fonte, dados ou metadados privados para o hub sem aprovacao apropriada.
-4. Manter GitHub Actions privado/faturamento ADIADO a pedido do usuario. Nao instalar runner, solicitar pagamento ou mudar baseline sem expansao de escopo autorizada. P4.1 permanece pendente ate existir verificacao real e rastreavel.
+1. Verificar sempre o estado REAL da main e a CI do ultimo commit antes de executar qualquer operacao. Se o contrato SHA-256 e seus testes ja estiverem aprovados, nao repetir PR #6 nem alterar desnecessariamente os documentos.
+2. Proxima frente P4.1: desenhar um PROTOCOLO PRIVADO E OFFLINE para associar commit, hashes dos arquivos realmente carregados, comando de teste, versao do ambiente e resultado de execucao de Weine e Casa Santana. Um hash isolado sem comprovacao de execucao nao e homologacao; distinguir verificacao local de E2E.
+3. Comecar por investigacao SOMENTE DE LEITURA dos mecanismos existentes nos repositorios PRIVADOS, sem copiar fontes ao hub e sem publicar hash/dado operacional. Implementacao futura exigira revisao de seguranca e consentimento adequado, exclusivamente em ambiente autorizado.
+4. PR #4 com tentativa bloqueada de publicacao continua separado e nao deve ser repetido, contornado ou mesclado. Manter faturamento privado GitHub ADIADO conforme pedido do usuario; nao instalar runners, exigir credenciais ou alterar baselines. So concluir P4.1 apos evidencias de correspondencia e validacao real seguras.
