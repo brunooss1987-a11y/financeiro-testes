@@ -1,6 +1,6 @@
 # E-SEC.1 — Testes negativos do gate de publicação pública
 
-**Data:** 2026-10-14. **Escopo:** expansão independente da P4.1, estimada em **1,00h**, explicitamente acrescentada ao baseline E-TEST de 6,00h (**novo total 7,00h**) antes da implementação. **Status inicial:** IMPLEMENTADO EM BRANCH; confirmação final depende de PR, CI e leitura da main.
+**Data:** 2026-10-14. **Escopo:** expansão independente da P4.1, estimada em **1,00h**, explicitamente acrescentada ao baseline E-TEST de 6,00h (**novo total 7,00h**) antes da implementação. **Status final:** VALIDADA como segurança do hub público, com CI pós-merge; não certifica motores privados.
 
 ## Motivo
 
@@ -42,6 +42,10 @@ As strings sensíveis completas são montadas apenas **em memória durante os te
 Este gate inspeciona **arquivos versionados atuais** (não repositórios privados, o histórico Git completo, secretos mascarados, dados externos nem o conteúdo de PRs futuros sem revisão). A checagem de symlink antes da leitura reduz uma exposição evidente, mas não constitui sandbox contra um atacante com controle simultâneo do filesystem. Nenhum teste L1/L2 privado ou E2E financeiro foi realizado.
 
 **Baseline recalculado previamente:** E-TEST 6,00h + E-SEC.1 1,00h = **7,00h**. Antes da validação da expansão: 5,00/7,00h = **71,43% concluído**, 28,57% restante. Após validação E-SEC.1: 6,00/7,00h = **85,71% concluído**, 14,29% restante. Weine histórico 19h/92,11% inalterado. E-INFRA-L2 de 10–16h permanece adiada e fora desse cálculo.
+
+## Evidencia final verificada (2026-10-14)
+
+PR #18 incorporado à main no commit `617a8414f811ba0e88b769202890acf12366a90f`. CI do PR `38625300169` **SUCCESS 3/3**; CI pós-merge na main `38625424962` **SUCCESS 3/3**. Logs pós-merge: dez testes negativos **10/10 PASS**, guard `PUBLIC_GUARD=PASS`, Weine **13/13 PASS** e Casa Santana **12/12 PASS**. Scanner, testes e workflow relidos na main. E-SEC.1 **VALIDADA (1,00/1,00h)**; progresso total E-TEST **6,00/7,00h = 85,71%**; 14,29% restantes relativos a P4.1.
 
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
