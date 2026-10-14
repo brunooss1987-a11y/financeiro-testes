@@ -97,9 +97,17 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - O arquivo `examples/windows-sandbox-no-access.wsb` permanece INATIVO. Nenhum guest, codigo financeiro, WSL, Docker ou script privado foi iniciado pela avaliacao.
 - P4.1 continua EM EXECUCAO, sem alterar os percentuais E-TEST 83,33% / 16,67% e Weine 92,11% / 7,89%.
 
+## P4.1 — GATE B OBSERVABILIDADE INTERNA AINDA PENDENTE, 2026-10-14
+
+- Estado antes do ensaio: Windows Sandbox estava HABILITADO e nao existia sessao iniciada. Perfil temporario .wsb fail-closed conferido por XML: Networking=Disable, ClipboardRedirection=Disable, sem mapeamentos e sem comando de inicializacao, audio/video/impressora desabilitados.
+- OBSERVADO no HOST: a sessao WindowsSandboxRemoteSession abriu e possuia janela. O launcher WindowsSandbox.exe encerrou enquanto a sessao/VM se mantinha ativa, de modo que somente observar o launcher pode dar falso negativo de boot.
+- NAO COMPROVADO: status real de rede, clipboard, pastas do host, comandos ou politicas do INTERIOR da VM. Nao houve log confiavel do guest; capturar pixels da janela por si so nao comprova isolamento. Nenhum comando foi executado dentro da Sandbox.
+- LIMPEZA VERIFICADA: sessao remota encerrada, sem processo WindowsSandboxRemoteSession restante; arquivo .wsb e imagem temporaria removidos. Sem fonte privada, dados financeiros, Node, credenciais, acesso Google ou mudancas do Windows.
+- Bloqueio tecnico: ferramentas de terminal remoto atuais nao ofereceram controle/leitura verificavel do conteudo interno da VM. Nao inventar aprovacao do Gate B e nao tentar passar codigo privado por um canal nao homologado.
+- Estado ponderado: P4.1 EM EXECUCAO, Gate B PARCIAL, L1/L2 PENDENTES. E-TEST 5/6h = 83,33% concluido | 16,67% restante; Weine 92,11% inalterada. PR #4 bloqueado continua separado e faturamento privado ADIADO.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Verificar o estado REAL do PR que registra avaliacao e do perfil `examples/windows-sandbox-no-access.wsb`: arquivos na main, checks Gate/Weine/Casa Santana completos e STATUS pos-merge. Se aprovados, nao repetir diagnostico nem alterar documentos sem motivo.
-2. O Windows Sandbox ja foi confirmado Enabled via Win32_OptionalFeature InstallState=1 (consulta somente leitura). Ainda NAO esta validado o boot nem confinamento da instancia. Nao instalar recursos, reiniciar o computador, elevar privilegios ou executar testes privados sem validacao dos gates.
-3. Como a ativacao esta confirmada, o proximo teste deve ser SINTETICO de boot/confinamento com perfil .wsb, sem fontes privadas: rede/clipboard desabilitados, sem mapeamentos, sem comandos de inicializacao e sem dados financeiros. Se o perfil nao abrir ou exigir mudanca do SO, registrar bloqueio e projetar alternativa privada reversivel com estimativa de esforco; nao criar runner permanente.
-4. Somente apos gates A–F comprovados, preparar uma prova L1/L2 com UM modulo e teste revisados por projeto, em ambiente isolado, sem transferir fontes ao hub publico. As evidencias L1/L2 devem permanecer privadas e associadas a commit, hash de todos os bytes usados e resultado.
-5. Adiar faturamento do GitHub conforme pedido, nao retomar o PR #4 de publicacao bloqueada, nao alterar bases de progresso nem considerar a P4.1 concluida sem integracao do codigo real.
+1. Verificar se o PR que registra esta evidencia foi mesclado e se os tres checks publicos e a ultima secao de HANDOFF estao atuais. Nao repetir o boot demonstrado.
+2. Projetar/verificar um metodo AUTORIZADO de observar controles do guest SEM rede, clipboard, compartilhamento de pastas, LogonCommand ou arquivos privados. A UI e seus resultados precisam ser acessiveis e auditaveis; caso contrario manter Gate B NAO VALIDADO.
+3. Se existir meio seguro, executar teste SINTETICO observavel dos tres controles e descartar a VM, sem scripts financeiros. Caso contrario registrar impeditivo objetivo e avaliar ambiente isolado alternativo dentro do escopo (sem instalar runner, sem gastos novos).
+4. Somente apos Gate B completo avaliar Node offline e atestados L1/L2 em ambiente privado. Nao contornar PR #4, nao resolver billing agora, nao modificar producao e nao ajustar baseline silenciosamente.
