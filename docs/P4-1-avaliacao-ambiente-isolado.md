@@ -56,3 +56,9 @@ Alternativas futuras (implantação sujeita a avaliação/esforço): VM descart�
 ## Evidencia posterior de verificacao somente leitura
 
 Em 2026-10-14, `Get-CimInstance Win32_OptionalFeature` confirmou o recurso `Containers-DisposableClientVM` com `InstallState=1`. Fonte para interpretacao: https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-optionalfeature (Enabled = 1). A confirmacao de recurso habilitado **nao** comprova guest inicializado, isolamento observado nem adequacao para testes privados. O status dos gates B–F permanece pendente.
+
+## Ensaio complementar: sessao remota confirmada; isolamento interno NAO aferido (2026-10-14)
+
+Um perfil .wsb temporario, sintaticamente validado e sem rede, clipboard, MappedFolders ou LogonCommand foi iniciado. O launcher WindowsSandbox.exe encerrou enquanto os processos WindowsSandboxRemoteSession e WindowsSandboxServer, junto dos processos de VM, permaneceram ativos; a janela Windows Sandbox existia. Isso confirma disponibilizacao da sessao, NAO os controles dentro da VM. A ferramenta remota disponivel nao possibilitou coletar observacao auditavel de rede, clipboard e pastas diretamente no guest. Nenhum comando foi executado dentro do guest e nenhum arquivo privado foi usado. A sessao remota foi encerrada e os arquivos temporarios eliminados, com ausencia do processo de sessao confirmada.
+
+DECISAO: Gate B **PARCIAL / NAO APROVADO**. Manter Gates C–F, L1/L2 e P4.1 pendentes. Proximo passo seguro: verificar mecanismo de interacao visual autorizado, capaz de observar controles efetivos no guest sem utilizar nenhum canal atualmente proibido. Caso isso nao exista, tratar como bloqueio tecnico e considerar ambiente isolado alternativo; nao validar isolamento apenas pelo XML de configuracao ou pela existencia de janela. Progresso E-TEST 83,33% e Weine 92,11% nao mudam.
