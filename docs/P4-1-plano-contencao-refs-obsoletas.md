@@ -1,6 +1,6 @@
 # P4.1 — Plano de contenção segura para referências públicas obsoletas
 
-**Data:** 2026-10-14. **Natureza:** decisão técnica DOCUMENTAL, nenhuma ref apagada ou movida. **Evidência de origem:** [PR #27](https://github.com/brunooss1987-a11y/financeiro-testes/pull/27) incorporado à `main` no commit público `f3c429226928a6725d5821c5f9e105a591e20518`, com CI do PR `38635730514` e CI pós-merge `38635821017`, ambas **3/3 SUCCESS**. O relatório `docs/P4-1-auditoria-refs-publicas.md` foi relido na `main`.
+**Data:** 2026-10-14. **Status:** VALIDADO DOCUMENTALMENTE na `main`, sem executar contenção de refs. **Natureza:** decisão técnica DOCUMENTAL, nenhuma ref apagada ou movida. **Evidência de origem:** [PR #27](https://github.com/brunooss1987-a11y/financeiro-testes/pull/27) incorporado à `main` no commit público `f3c429226928a6725d5821c5f9e105a591e20518`, com CI do PR `38635730514` e CI pós-merge `38635821017`, ambas **3/3 SUCCESS**. O relatório `docs/P4-1-auditoria-refs-publicas.md` foi relido na `main`.
 
 ## 1. Risco factual e alcance
 
@@ -40,6 +40,10 @@ Este plano não depende de OAuth, Google Sheets, faturamento privado, VM, autori
 
 Plano corretivo de confidencialidade **sem nova funcionalidade**, portanto sem alterar pesos: E-TEST **7/8h = 87,50% concluído | 12,50% restante**. P4.1 segue EM EXECUÇÃO por falta de L1/L2 privados; E-INFRA-L2 10–16h continua ADIADA/não incorporada. Histórico Weine 92,11% preservado.
 
+## Validação final do plano
+
+PR #28 merged em `50744489cd38be469577f446b8397a2bb12dfc69`; CI do PR `38636195358` e CI pos-merge da `main` `38636282758` COMPLETED/SUCCESS nos tres checks. Leitura posterior confirmou o plano, ROADMAP e HANDOFF publicados na `main`. Os critérios C0–C6 são apenas pré-condições futuras: nenhum gate operacional de exclusão foi executado ou aprovado.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-Conferir PR/CI e leitura deste plano e dos documentos ROADMAP/HANDOFF na `main`. Sem nova autorização ou evidência de necessidade, **encerrar a frente autônoma de auditoria/planejamento de refs como documentada**, mantendo o risco residual e P4.1 pendente; não gerar sucessivas tarefas de documentação para manter o fluxo ativo. Qualquer intervenção futura em refs existentes deve recomeçar por inventário e autorização apropriados.
+A frente autônoma de auditoria/planejamento de refs está **CONCLUÍDA DOCUMENTALMENTE**, com risco residual preservado. Em futura solicitação, verificar primeiro se existe evidência nova e autoridade específica para intervir; somente então atualizar inventário, dependências e critérios de recuperação. Não executar exclusões, force-push ou reescrita por efeito deste plano. P4.1 privada permanece pendente de L1/L2 e não está concluída.
