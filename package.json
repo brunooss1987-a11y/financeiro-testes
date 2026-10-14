@@ -1,0 +1,14 @@
+{
+  "name": "financeiro-testes-piloto",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/weine/*.test.mjs tests/casa-santana/*.test.mjs",
+    "test:weine": "node --test tests/weine/*.test.mjs",
+    "test:casa": "node --test tests/casa-santana/*.test.mjs",
+    "guard": "node tools/check-publication.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
