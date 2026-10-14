@@ -106,8 +106,17 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - Bloqueio tecnico: ferramentas de terminal remoto atuais nao ofereceram controle/leitura verificavel do conteudo interno da VM. Nao inventar aprovacao do Gate B e nao tentar passar codigo privado por um canal nao homologado.
 - Estado ponderado: P4.1 EM EXECUCAO, Gate B PARCIAL, L1/L2 PENDENTES. E-TEST 5/6h = 83,33% concluido | 16,67% restante; Weine 92,11% inalterada. PR #4 bloqueado continua separado e faturamento privado ADIADO.
 
+## P4.1 — TESTE SINTETICO DENTRO DA SANDBOX, 14/10/2026
+
+- Estado do guest antes do ensaio: perfil .wsb VALIDADO com Networking=Disable e ClipboardRedirection=Disable, sem MappedFolders nem LogonCommand. A janela WindowsSandboxRemoteSession foi observada por PrintWindow e interagida somente depois de conferir foco.
+- NO GUEST: cmd abriu; `ipconfig` nao listou adaptadores; `net use` nao listou conexoes de rede; `Get-PSDrive -PSProvider FileSystem` apresentou apenas `C:\` do guest.
+- CLIPBOARD: marcador 100% ficticio foi inserido no guest via `clip` e recuperado via `Get-Clipboard` dentro do guest. Consulta booleana no host confirmou que o marcador NAO transitou ao clipboard principal. Clipboard existente no host NAO foi copiado, modificado ou divulgado. Sentido host->guest permanece NAO AFERIDO.
+- LOGICA DE ACEITE: os controles operacionais observados passaram, mas nao equivalem a prova de ausencia de quaisquer canais ocultos ou a certificacao de seguranca adversarial. Gate B = PARCIAL para isolamento bidirecional. Gates C-F, atestados L1/L2 e testes financeiros reais permanecem PENDENTES.
+- APOS O ENSAIO: sessao remota encerrada e segunda consulta confirmou ausencia do processo; perfil/capturas temporarios apagados. Nenhum codigo privado, token, Apps Script, Node, ou dado financeiro processado. Nenhuma captura/resultado com dado pessoal publicada. Evidencias sanitizadas em `docs/P4-1-ensaio-interno-sandbox.md`.
+- PR #4 bloqueado continua separado. P4.1 NAO concluida. E-TEST 5,00/6,00 h = 83,33% concluido | 16,67% restante; Weine historica 92,11% | 7,89% inalterados. Faturamento privado continua adiado.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Verificar se o PR que registra esta evidencia foi mesclado e se os tres checks publicos e a ultima secao de HANDOFF estao atuais. Nao repetir o boot demonstrado.
-2. Projetar/verificar um metodo AUTORIZADO de observar controles do guest SEM rede, clipboard, compartilhamento de pastas, LogonCommand ou arquivos privados. A UI e seus resultados precisam ser acessiveis e auditaveis; caso contrario manter Gate B NAO VALIDADO.
-3. Se existir meio seguro, executar teste SINTETICO observavel dos tres controles e descartar a VM, sem scripts financeiros. Caso contrario registrar impeditivo objetivo e avaliar ambiente isolado alternativo dentro do escopo (sem instalar runner, sem gastos novos).
-4. Somente apos Gate B completo avaliar Node offline e atestados L1/L2 em ambiente privado. Nao contornar PR #4, nao resolver billing agora, nao modificar producao e nao ajustar baseline silenciosamente.
+1. Confirmar o estado REAL do PR documental deste ensaio, os tres checks do GitHub Actions e a presenca do relatorio na main; verificar leitura dos documentos Drive antes de repetir operacoes. Nao repetir a abertura do guest ou testes ja executados.
+2. Estudar SOMENTE EM LEITURA a viabilidade do Gate C: Node portatil OFFLINE confiavel, metodo de atestar hash do runtime e entradas/saidas minimas do guest, sem ativar rede, clipboard ou pastas mapeadas. Se depender de canal que comprometa o isolamento, registrar impedimento; nao instalar runner ou baixar executaveis no guest.
+3. Manter Gate B marcado PARCIAL para fluxo host->guest nao testado. Avaliar teste sintetico desse sentido somente se houver forma demonstravelmente reversivel e segura que preserve integralmente o clipboard preexistente no computador; nao arriscar dados do usuario para completar teste.
+4. Somente apos Gates B-F suficientes e auditoria dos testes pequenos aprovados em Weine/Casa Santana produzir eventual atestado L1/L2 PRIVADO vinculando commit, bytes realmente carregados e exit code. Nunca publicar fontes privadas no hub, nao tentar merge bloqueado do PR #4 e nao retomar faturamento.
