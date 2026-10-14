@@ -45,8 +45,18 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - Conjuntos que dependem de `src/`, Google, OAuth, dados, backups ou integrações reais permanecem privados ou exigem revisao individual. Documento auditavel `docs/P3-1-inventario-casa-santana.md` no hub publico tem detalhes, sem codigo-fonte confidencial.
 - P3.1 VALIDADA como INVENTARIO/SELECAO, NAO PUBLICACAO/INTEGRACAO. P3: 100% concluida / 0% restante. E-TEST 5,00/6,00h = 83,33% concluido / 16,67% restante. Progresso historico Weine 92,11% inalterado. P4.1 PENDENTE.
 
+## P4.1 — CONTINUIDADE DA CI PUBLICA SEM FATURAMENTO PRIVADO — 2026-10-14
+
+- O usuario solicitou continuar o trabalho sem tratar agora o bloqueio de faturamento dos workflows privados. A investigacao financeira fica EM ESPERA, nao e pre-requisito dos testes sinteticos do hub.
+- PR publico #5: https://github.com/brunooss1987-a11y/financeiro-testes/pull/5. Nenhuma fonte ou fixture proveniente dos repositorios privados foi inserida neste PR. Foram adicionados dois testes novos e independentes, usando exclusivamente o modulo demonstrativo ja publico `src/shared/centavos-demo.mjs`.
+- `.github/workflows/ci.yml` passou a executar todos os arquivos `tests/weine/*.test.mjs` e `tests/casa-santana/*.test.mjs` de cada suite. Nomes dos checks obrigatorios preservados.
+- Execucao REAL do hub publico https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/38583678164: gate de publicacao SUCCESS; Weine 7/7 testes sinteticos PASS, Casa Santana 6/6 testes sinteticos PASS, ambos com 0 falhas nos logs. Isso prova SOMENTE a infraestrutura e as invariantes da funcao DEMO, NAO o funcionamento dos motores reais.
+- Documentada a matriz de cobertura em `docs/P4-1-continuidade-offline.md`; README do hub explica comandos `npm run test:weine`, `npm run test:casa` e `npm run guard`. Nenhuma autenticao Google, deploy, acesso a Sheets ou dados bancarios.
+- PR #4 com proveniencia e bloqueio de copia de fontes privadas permanece EM SEPARADO e ABERTO, nao repetir ou contornar a recusa do merge/publicacao. Os sistemas operacionais privados e suas planilhas permanecem INALTERADOS.
+- P4.1 permanece EM EXECUCAO/PARCIAL, pois nao ha identidade validada com codigo financeiro real. P0–P3 ja validadas, E-TEST permanece 5,00/6,00h = 83,33% concluido / 16,67% restante, Weine historica 19h = 92,11% inalterada.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Verificar estado REAL do PR de P3.1, protecao de branch, checks e arquivo do inventario na main. Se tudo validado, nao repetir P0, P1, P2, P3.
-2. P4.1: conferir versao ATUAL dos candidatos privados em Weine e Casa Santana por leitura, revisar diffs integrais e classificar como publicaveis ou bloqueados. Nunca transmitir credenciais, IDs operacionais, dados reais, log financeiro, snapshots ou repositorios privados completos ao hub.
-3. Se a revisao final dos pares for aprovada e os controles continuarem ativos, planejar/publicar SOMENTE os arquivos necessarios via pull request com manifesto de proveniencia (repo privado + nome de arquivo + SHA exato), e provar tres checks publicos PASS antes e depois de merge. Caso contrario, registrar bloqueio real e nao simular progresso.
-4. Nao tratar sucesso offline como homologacao de planilha Apps Script. Preservar roadmap historico Weine 19h / 92,11% e os baselines da Casa Santana. Atualizar este HANDOFF e ROADMAP somente apos validacao real da P4.1, mantendo esta secao final com o mesmo titulo.
+1. Verificar o estado real do PR #5, os tres checks e o diff. Se merge ainda for permitido, incorporar somente este PR de testes sinteticos, depois exigir CI success na main e reler README, ROADMAP, HANDOFF e docs/P4-1-continuidade-offline.md. Se o merge for recusado, parar essa operacao e registrar, sem tentar outro caminho.
+2. Manter PR #4 separado e SEM nova tentativa de incorporar as fontes privadas ou contornar qualquer bloqueio.
+3. A proxima frente efetiva da P4.1 e um desenho de rastreabilidade de **codigo real privado**, sem acesso publico a ele: identificar contratos verificaveis entre versoes, executar testes reais apenas em ambiente autorizado e seguro, e documentar claramente a diferenca entre teste sintetico e E2E. Nao declarar P4.1 concluida com base apenas nos resultados do hub publico.
+4. Faturamento GitHub privado permanece ADIADO a pedido do usuario. Nao exigir pagamento, novo token, servico pago ou acao do usuario para dar continuidade aos testes publicos. Preservar progresso anterior E-TEST 83,33% e Weine 92,11% ate efetiva validacao.
