@@ -155,8 +155,14 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - IMPLEMENTADO EM BRANCH: tools/prove-public-demo-run.mjs e testes sintéticos separados nas duas suites, fazendo hash fixado de fonte publica, digest de teste, rodada controlada do piloto publico, posflight e flags L1/L2 explicitamente false. Nao e atestado de codigo privado nem certificacao de isolamento. VALIDACAO PENDENTE ate PR, CI e main/readback.
 - P4.1 permanece EM EXECUCAO. G0 sem autorizacao de VM, G1–G9 NOT_TESTED, Gate B parcial, C bloqueado. L1/L2 privados NAO produzidos. E-TEST 5/6h = 83,33% concluido | 16,67% restante; Weine historica 92,11% | 7,89%. E-INFRA-L2 continua adiada/nao incorporada. Sem alteracao de formulas, dados, planilhas, Google, Windows, repos privados ou billing.
 
+## E-SEC.1 — EXPANSAO DE TESTES NEGATIVOS DO GATE (2026-10-14)
+
+- **ESTADO ANTES:** main `256f1ae6c7287b12b318151791c4c47b42ceec3e`, PR #17 merged, Gate publico sem `tests/security`, scanner usando `statSync` e fluxo de 3 checks existentes; PR #4 continua bloqueado. Nenhuma P4.1 privada reexecutada.
+- **DECISAO DE ESCOPO E PESOS ANTES DE MUDANCA:** adicionar E-SEC.1 independente, estimativa 1,00h. E-TEST historico 5,00h de 6,00h = 83,33%; novo baseline **7,00h**, 5,00/7,00h = **71,43% concluido / 28,57% restante** enquanto E-SEC.1 nao validada. Apos concluir, 6,00/7,00h = **85,71% / 14,29%**, mantendo P4.1 pendente. Weine historica (19h, 92,11%) preservada. E-INFRA-L2 10–16h adiada e fora do baseline.
+- **IMPLEMENTADO NA BRANCH, NAO HOMOLOGADO AINDA:** `tools/publication-guard-core.mjs` extrai regras atuais e recusa symlinks, travessia e arquivos acima de 1 MiB; `tools/check-publication.mjs` preserva `git ls-files -z`; `tests/security/publication-gate.test.mjs` contem 10 testes com dados ficticios em temporarios; job `Gate de publicacao` executa suite negativa sem alterar nomes dos tres checks; descricao e matriz em `docs/E-SEC-1-gate-testes-negativos.md`.
+- **LIMITES:** gate cobre arquivos atuais do hub publico, nao historico Git completo nem atestados de codigo privado; dados de teste ficticios. Nenhuma planilha, Apps Script, VM, Hyper-V, OAuth, credencial, billing ou repo privado alterado.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Verificar branch/PR, revisar diff publico, rodar CI dos tres jobs e validar readback da main ANTES de marcar o novo comprovante sintetico aprovado. Se falhar, corrigir sem desativar gate.
-2. Confirmar teste somente public-demo com false para todos os niveis privados; se houver risco de exfiltracao, nao mesclar.
-3. Investigar APENAS em leitura se artefatos historicos privados ja possuem atestado completo de dependencias carregadas e hashes pre/pos; se nao, registrar limite e NAO confundir CI historica com L2.
-4. Manter expansao E-INFRA-L2 adiada, baselines inalterados, PR #4 bloqueado, fontes privadas e planilhas intocadas. Sem novas instalacoes, runner, Hyper-V, OAuth, deploy ou faturamento.
+1. Conferir HEAD, diff, status do PR de E-SEC.1 e CI (10 testes de seguranca + 3 checks nomeados); nunca marcar VALIDADO antes dos resultados observados.
+2. Se passar, mesclar pelo processo protegido, conferir os tres checks de CI da main e reler `ROADMAP.md`, `HANDOFF.md` e os novos arquivos antes de registrar E-SEC.1 100% e E-TEST 85,71%.
+3. Somente quando houver conclusao/validacao real, atualizar ROADMAP/HANDOFF com resultados. Nao repetir testes ja validados ou contornar bloqueios de Drive. Preserve PR #4 aberto/bloqueado e P4.1 pendente.
