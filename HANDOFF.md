@@ -148,7 +148,15 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - Recuperacao de conversa cheia: docs E-TEST ROADMAP, HANDOFF e CHECKPOINT no Drive encontrados e relidos na pasta Handoffs e Checkpoints. Main previa = PR #15 merge `91ef92c66e139ea216536f72ae0b867dae96df48`, CI run 38601176719 tres jobs SUCCESS; PR #4 OPEN/bloqueado. Nenhuma operacao de infraestrutura ou fontes privadas repetida.
 - Percentuais preservados: E-TEST 5/6h = 83,33% concluido/16,67% restante; Weine historica 92,11%/7,89%. Expansao E-INFRA-L2 de 10-16h proposta, ainda NAO incorporada.
 
+
+## P4.1 — ALTERNATIVAS SEM INFRA E PILOTO DE RECIBO PUBLICO — 2026-10-14
+- RECONCILIACAO: main antes da branch = e5b7efb14f4adf9b0ed683b33fdaaef14b3e381b, PR #16 merged, run pos-merge 38604767132 SUCCESS. PR #4 aberto/bloqueado. Tres Docs E-TEST da pasta indicada relidos. Conselho de Escalonamento decidiu ADIAR E-INFRA-L2, nao incorporar 10–16h nem autorizar Windows, VM ou reboot.
+- ESTUDO NOVO: docs/P4-1-alternativas-l1-l2-sem-infra.md compara API Git read-only, CI historica privada, host Node, Sandbox sem canais, CI publica sintética, Actions privado e VM offline. CI historica da Casa Santana foi reconfirmada por metadados de run/job (SUCCESS no commit historico); isto NAO comprova manifesto de bytes carregados nem posflight exigidos por L2. Consulta sem novos testes privados e sem copiar fontes.
+- IMPLEMENTADO EM BRANCH: tools/prove-public-demo-run.mjs e testes sintéticos separados nas duas suites, fazendo hash fixado de fonte publica, digest de teste, rodada controlada do piloto publico, posflight e flags L1/L2 explicitamente false. Nao e atestado de codigo privado nem certificacao de isolamento. VALIDACAO PENDENTE ate PR, CI e main/readback.
+- P4.1 permanece EM EXECUCAO. G0 sem autorizacao de VM, G1–G9 NOT_TESTED, Gate B parcial, C bloqueado. L1/L2 privados NAO produzidos. E-TEST 5/6h = 83,33% concluido | 16,67% restante; Weine historica 92,11% | 7,89%. E-INFRA-L2 continua adiada/nao incorporada. Sem alteracao de formulas, dados, planilhas, Google, Windows, repos privados ou billing.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. Confirmar PR/CI e leitura da matriz na main antes de declarar publicacao, conferir os tres Docs E-TEST no Drive e registrar somente mudancas comprovadas; nao duplicar documentos.
-2. Obter decisao administrativa explicita sobre a E-INFRA-L2, estimativa e impacto antes de qualquer habilitacao de Hyper-V, reboot, download ou VM. Ate la manter NO-GO e P4.1 nao concluida.
-3. Preservar Gate B parcial, C bloqueado, G0-G9 NOT_TESTED, PR #4 bloqueado, billing privado adiado, fontes e planilhas intocadas.
+1. Verificar branch/PR, revisar diff publico, rodar CI dos tres jobs e validar readback da main ANTES de marcar o novo comprovante sintetico aprovado. Se falhar, corrigir sem desativar gate.
+2. Confirmar teste somente public-demo com false para todos os niveis privados; se houver risco de exfiltracao, nao mesclar.
+3. Investigar APENAS em leitura se artefatos historicos privados ja possuem atestado completo de dependencias carregadas e hashes pre/pos; se nao, registrar limite e NAO confundir CI historica com L2.
+4. Manter expansao E-INFRA-L2 adiada, baselines inalterados, PR #4 bloqueado, fontes privadas e planilhas intocadas. Sem novas instalacoes, runner, Hyper-V, OAuth, deploy ou faturamento.
