@@ -6,7 +6,7 @@
 
 A infraestrutura de testes do hub público já foi validada; sua execução demonstra somente o funcionamento das suítes sintéticas. Para as duas origens financeiras privadas, o protocolo de atestação L1/L2 em `docs/P4-1-protocolo-evidencia-privada.md` exige um executor privado capaz de comprovar isolamento e identidade dos arquivos.
 
-Uma inspeção técnica **somente de leitura** do equipamento autorizado encontrou sinais de compatibilidade geral com virtualização e disponibilidade do executável Windows Sandbox, mas **não confirmou a funcionalidade habilitada nem uma instância isolada operacional**. A leitura do estado de ativação do recurso depende de elevação administrativa, indisponível na verificação. A existência de um executável não autoriza inferir que o recurso funciona. Não há executor Docker/Podman ou Linux/WSL pronto comprovado neste diagnóstico.
+Uma inspeção técnica **somente de leitura** do equipamento autorizado encontrou compatibilidade geral com virtualização e disponibilidade do executável Windows Sandbox. A primeira consulta do recurso exigiu elevação; uma verificação adicional pelo WMI `Win32_OptionalFeature` retornou `Containers-DisposableClientVM / InstallState=1` (**Enabled**, conforme Microsoft Learn), sem exigir elevação ou alterar o sistema. **O recurso está habilitado, mas nenhuma instância isolada foi aberta/testada**. Não há executor Docker/Podman ou Linux/WSL pronto comprovado neste diagnóstico.
 
 Não publicar neste hub nomes, caminhos locais, identificadores, detalhes adicionais de hardware ou dados da estação de trabalho.
 
@@ -25,7 +25,7 @@ Documentação: https://learn.microsoft.com/en-us/windows/security/application-s
 
 ## Gates verificáveis — antes de qualquer piloto L1/L2
 
-**Gate A — Recurso:** confirmar, com permissão administrativa apropriada quando necessária, que o Windows Sandbox está habilitado e pode iniciar sem modificar configuração do host. Se depender de ativação, reinício ou instalação, parar e tratar a mudança separadamente; nenhuma alteração foi autorizada nesta avaliação.
+**Gate A — Recurso (PARCIALMENTE VERIFICADO):** o status do recurso está confirmado como `Enabled (1)` por consulta WMI somente leitura. Ainda falta confirmar que a instância inicia com o perfil restritivo e sem modificar a configuração do host. Se iniciar depender de ativação adicional, reinício ou instalação, parar e tratar a mudança separadamente.
 
 **Gate B — Confinamento:** iniciar somente o modelo de teste sem dados; verificar no guest que não houve acesso às pastas do host, que a rede permanece desativada, que o clipboard não está disponível e que o ambiente pode ser descartado. Registrar apenas resultado PASS/FAIL, sem informações pessoais.
 
@@ -45,10 +45,14 @@ Documentação: https://learn.microsoft.com/en-us/windows/security/application-s
 
 ## Decisão desta rodada
 
-**Windows Sandbox é a melhor opção local preliminar, MAS NÃO ESTÁ APROVADO PARA TESTES FINANCEIROS.** Não executar scripts privados no host sem sandbox e não tentar ultrapassar recusas anteriores da plataforma. Sem Gate A/B comprovados, o trabalho deve permanecer em modo de planejamento.
+**Windows Sandbox está habilitado e é a melhor opção local preliminar, MAS NÃO ESTÁ APROVADO PARA TESTES FINANCEIROS.** Não executar scripts privados no host sem sandbox e não tentar ultrapassar recusas anteriores da plataforma. Sem Gate A/B comprovados, o trabalho deve permanecer em modo de planejamento.
 
 Alternativas futuras (implantação sujeita a avaliação/esforço): VM descartável isolada, runner privado com credenciais ausentes, ou recuperação dos workflows privados quando o usuário optar por retomar o tema. Nenhuma foi configurada agora.
 
 **Progresso inalterado:** P4.1 EM EXECUÇÃO; expansão E-TEST 5,00/6,00h = 83,33% concluída, 16,67% restante; Weine histórico 92,11% concluído.
 
-**Próxima ação sujeita a verificação:** verificar que este perfil e o relatório foram publicados e passaram na CI. Depois, verificar a ativação real do recurso sem modificá-lo; se o recurso exigir elevação/instalação, registrar dependência específica em vez de executá-la automaticamente. Não marcar L1/L2 nem P4.1 como concluídos até existirem as provas necessárias.
+**Próxima ação sujeita a verificação:** verificar que este perfil e o relatório foram publicados e passaram na CI. Depois, testar SOMENTE o início e os controles de uma instância sintética, sem arquivos compartilhados, sem scripts privados e sem mudar o Windows; registrar se o perfil restritivo realmente se aplica. Se falhar ou exigir mudança adicional do SO, registrar o impedimento em vez de ativar recursos automaticamente. Não marcar L1/L2 nem P4.1 como concluídos até existirem as provas necessárias.
+
+## Evidencia posterior de verificacao somente leitura
+
+Em 2026-10-14, `Get-CimInstance Win32_OptionalFeature` confirmou o recurso `Containers-DisposableClientVM` com `InstallState=1`. Fonte para interpretacao: https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-optionalfeature (Enabled = 1). A confirmacao de recurso habilitado **nao** comprova guest inicializado, isolamento observado nem adequacao para testes privados. O status dos gates B–F permanece pendente.
