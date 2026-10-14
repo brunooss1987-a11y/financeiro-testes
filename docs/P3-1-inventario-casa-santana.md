@@ -12,17 +12,17 @@ A arvore `main` do repositorio privado Casa Santana continha, no momento da audi
 
 | Caminho na origem privada | Git blob SHA exato na main | Parecer |
 |---|---|---|
-| `scripts/adv1-connector-refusal-guard.mjs` | `dbf81cb36f07aeeba5cfd52b239d2f12ed1267e1` | Funcao pura de classificacao de recusas e resultados incertos; apenas memoria |
-| `scripts/test-adv1-connector-refusal-guard.mjs` | `d096b4df3eeb4cfc73997d8bd87e42af204443d9` | 13 cenarios sinteticos usando biblioteca padrao `node:assert/strict` |
+| `scripts/adv1-connector-refusal-guard.mjs` | `[identificador de commit/objeto privado suprimido]` | Funcao pura de classificacao de recusas e resultados incertos; apenas memoria |
+| `scripts/test-adv1-connector-refusal-guard.mjs` | `[identificador de commit/objeto privado suprimido]` | 13 cenarios sinteticos usando biblioteca padrao `node:assert/strict` |
 
 As duas fontes foram consultadas na GitHub API e verificadas por inspecao estatica: **sem** chamadas de rede, Google Sheets ou Apps Script, acesso a filesystem, variaveis de ambiente, uso de subprocessos, credenciais reconheciveis, URL de planilha ou CPF formatado. Nao ha dependencia de `src/` nem pacote externo. A rotina classifica eventos e devolve sinalizadores de protecao; nao executa pagamentos nem escrita.
 
 ### Evidencia executada ANTERIORMENTE pela CI privada — verificacao sem repeticao
 
-- Run privado: `https://github.com/brunooss1987-a11y/Casa-santana/actions/runs/38489755488`, workflow **Validate Apps Script**, conclusao `success`, job `115611901085` `success`.
-- Head commit da execucao: `40b2b20cf13ac2eb350f65956bd2a604876931f4`.
+- Run privado: `[referencia de execucao privada suprimida]`, workflow **Validate Apps Script**, conclusao `success`, job `[ID de job privado suprimido]` `success`.
+- Head commit da execucao: `[identificador de commit/objeto privado suprimido]`.
 - Arvore desse commit: os dois Git blob SHA sao **exatamente iguais** aos dois blobs verificados na `main` no momento da auditoria.
-- `scripts/validate-repo.mjs` inclui expressamente `scripts/test-adv1-connector-refusal-guard.mjs`; o log da execucao registra: **"ADV-1 connector refusal guard OK (13 scenarios; no live writes)."**
+- `scripts/validate-repo.mjs` inclui expressamente `scripts/test-adv1-connector-refusal-guard.mjs`; o log da execucao registra: **"resultado de 13 cenarios, registrado somente na origem privada"**
 - Tentativa posterior de uma nova execucao local isolada foi bloqueada por uma restricao de seguranca, nao executada e NAO contornada. O aceite usa **a evidencia historica da CI com hashes coincidentes**, sem alegar uma nova execucao.
 - Isso prova o comportamento dos cenarios no commit verificado, nao homologacao de planilha real nem ausencia de todas as vulnerabilidades.
 
@@ -49,3 +49,6 @@ As duas fontes foram consultadas na GitHub API e verificadas por inspecao estati
 ## Proxima etapa
 
 **P4.1 — Versionamento rastreavel e integracao documentada.** Verificar o estado real dos PRs, os controles de GitHub Actions e a versao atual da origem privada; decidir a publicacao controlada dos dois pares ja classificados (Weine e Casa Santana), sem ultrapassar os gates. A classificacao P3.1 nao e autorizacao para copiar automaticamente codigo privado.
+
+
+**Protecao posterior do registro publico (14/10/2026):** hashes, URL de execucao e identificadores privados foram suprimidos da versao corrente. Os resultados historicos continuam descritos, mas a prova detalhada deve permanecer no ambiente privado autorizado. O historico Git anterior nao foi reescrito.
