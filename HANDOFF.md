@@ -142,8 +142,13 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - NOVA PESQUISA: Microsoft Learn confirma suporte da VM Gen2 a ISO/VHDX e Secure Boot (Linux requer configuracao de certificado adequada) e explica limites dos checkpoints para recuperacao. Fontes diretamente ligadas no checklist. Nenhuma ISO, runtime, VM ou software foi criado, baixado, instalado ou inicializado.
 - ESTADO DOS SISTEMAS: P4.1 EM EXECUCAO; Gate B Sandbox PARCIAL, C pendente/sem canal aprovado no perfil restritivo, D-F NAO validados, L1/L2 privados inexistentes. E-INFRA-L2 de 10 a 16h e apenas EXPANSAO PROPOSTA e NAO incorporada. E-TEST 5,00/6,00h = 83,33% concluido/16,67% restante; Weine historica 92,11% concluido/7,89% restante. Nada mudou nas planilhas, formulas, relacoes ou repositorios financeiros.
 
+
+## P4.1 — MATRIZ DOCUMENTAL GO/NO-GO E RECUPERACAO EMERGENCIAL — 2026-10-14
+- Novo parecer em `docs/P4-1-matriz-decisao-go-no-go-vm.md` confronta checklist G0-G9 e ADR de VM offline: bloqueios, donos por funcao, provas de aceite, vetos e rollback. Todos gates operacionais continuam NOT_TESTED e G0 NAO AUTORIZADO. Decisao atual: NO-GO de implantacao; esta redacao nao aprova VM nem atestados L1/L2.
+- Recuperacao de conversa cheia: docs E-TEST ROADMAP, HANDOFF e CHECKPOINT no Drive encontrados e relidos na pasta Handoffs e Checkpoints. Main previa = PR #15 merge `91ef92c66e139ea216536f72ae0b867dae96df48`, CI run 38601176719 tres jobs SUCCESS; PR #4 OPEN/bloqueado. Nenhuma operacao de infraestrutura ou fontes privadas repetida.
+- Percentuais preservados: E-TEST 5/6h = 83,33% concluido/16,67% restante; Weine historica 92,11%/7,89%. Expansao E-INFRA-L2 de 10-16h proposta, ainda NAO incorporada.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
-1. VERIFICAR ESTADO REAL: conferir merge e tres checks CI do PR documental do checklist, e reler `ROADMAP.md`, `HANDOFF.md`, `docs/P4-1-checklist-preflight-reversibilidade-vm.md` na main. Se o PR ainda estiver pendente, NAO assumir publicacao/validacao. Conferir Google Drive ROADMAP/HANDOFF/CHECKPOINT e somente atualizar onde houver mudanca.
-2. PROXIMA ACAO LOGICA: elaborar e revisar MATRIZ DOCUMENTAL GO/NO-GO de G0-G9 com condicoes de veto e trilha de autorizacoes/reversibilidade; identificar quais dependencias permanecem INDISPONIVEIS para qualquer instalacao futura, sem repetir a auditoria de capacidade ja efetuada.
-3. NAO executar ou instalar Hyper-V, criar VM, reiniciar, baixar Linux/Node, modificar politicas, compartilhar pastas/clipboard/rede, copiar fonte privada ou gerar atestado L1/L2 neste ciclo. Implementacao somente apos expansao E-INFRA-L2 formalmente autorizada, estimativa revista e baseline transparente ANTES da primeira mudanca.
-4. Preservar Gate B parcial, faturamento Actions privado adiado, PR #4 bloqueado, motores financeiros Weine/Casa Santana privados, valores e historicos; nao declarar P4.1 validada sem provas efetivas L1/L2 privadas.
+1. Confirmar PR/CI e leitura da matriz na main antes de declarar publicacao, conferir os tres Docs E-TEST no Drive e registrar somente mudancas comprovadas; nao duplicar documentos.
+2. Obter decisao administrativa explicita sobre a E-INFRA-L2, estimativa e impacto antes de qualquer habilitacao de Hyper-V, reboot, download ou VM. Ate la manter NO-GO e P4.1 nao concluida.
+3. Preservar Gate B parcial, C bloqueado, G0-G9 NOT_TESTED, PR #4 bloqueado, billing privado adiado, fontes e planilhas intocadas.
