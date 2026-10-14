@@ -1,0 +1,41 @@
+name: Piloto publico - suites isoladas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: piloto-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: Gate de publicacao
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Ambiente Node.js
+        run: node --version
+      - name: Rejeitar publicacao de segredos comuns
+        run: node tools/check-publication.mjs
+
+  suites:
+    name: Piloto ${{ matrix.suite }}
+    needs: security
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [weine, casa-santana]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Testar somente exemplos sinteticos
+        run: node --test "tests/${{ matrix.suite }}/piloto.test.mjs"
