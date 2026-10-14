@@ -1,0 +1,51 @@
+{
+  "schema": "E-TEST-P4.1-2026-10-14",
+  "state": "BLOCKED_BY_PLATFORM_SECURITY",
+  "public_code_released": false,
+  "release_approval": false,
+  "verified_read_only": true,
+  "sources": [
+    {
+      "system": "weine",
+      "origin_repo": "brunooss1987-a11y/Weine",
+      "origin_ref": "feature/e1-4-lab-api-direct-20261011",
+      "origin_commit": "703f3d8ea6824eef413742634084d590207483e5",
+      "origin_path": "lab-e14/overwrite-guard.mjs",
+      "git_blob_sha": "148666fc3ee4dd5de1fa38843a24226a98c89986",
+      "public_path": null
+    },
+    {
+      "system": "weine",
+      "origin_repo": "brunooss1987-a11y/Weine",
+      "origin_ref": "feature/e1-4-lab-api-direct-20261011",
+      "origin_commit": "703f3d8ea6824eef413742634084d590207483e5",
+      "origin_path": "lab-e14/overwrite-guard-test.mjs",
+      "git_blob_sha": "6bff970930553d85c1d7faa7c478cc80a37c460b",
+      "public_path": null
+    },
+    {
+      "system": "casa-santana",
+      "origin_repo": "brunooss1987-a11y/Casa-santana",
+      "origin_ref": "main",
+      "origin_commit": "88d84fff4835ad2f7b9f04ab87aad4b645830c4f",
+      "origin_path": "scripts/adv1-connector-refusal-guard.mjs",
+      "git_blob_sha": "dbf81cb36f07aeeba5cfd52b239d2f12ed1267e1",
+      "public_path": null
+    },
+    {
+      "system": "casa-santana",
+      "origin_repo": "brunooss1987-a11y/Casa-santana",
+      "origin_ref": "main",
+      "origin_commit": "88d84fff4835ad2f7b9f04ab87aad4b645830c4f",
+      "origin_path": "scripts/test-adv1-connector-refusal-guard.mjs",
+      "git_blob_sha": "d096b4df3eeb4cfc73997d8bd87e42af204443d9",
+      "public_path": null
+    }
+  ],
+  "tests_performed_in_public_on_actual_sources": 0,
+  "private_tests_previously_verified": {
+    "weine": 7,
+    "casa_santana": 13
+  },
+  "notes": "Do not interpret read-only source verification as successful public execution or financial E2E. No private contents were published in P4.1."
+}
