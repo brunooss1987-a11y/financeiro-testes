@@ -1,4 +1,4 @@
-// Executa SOMENTE uma das 3 suites sinteticas locais preexistentes.
+// Executa SOMENTE uma das 3 suites sinteticas publicas autorizadas.
 // Este runner nao aceita comandos, caminhos ou argumentos de teste arbitrarios.
 import { spawnSync } from 'node:child_process';
 import { appendFileSync, lstatSync, readdirSync } from 'node:fs';
@@ -6,7 +6,12 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { formatPublicStepSummary, parsePublicTapSummary, publicSuitePassed } from './public-ci-summary.mjs';
 
-const ALLOWED = new Set(['security', 'weine', 'casa-santana']);
+const PATHS = Object.freeze({
+  security: join('tests', 'security'),
+  weine: join('weine', 'tests'),
+  'casa-santana': join('casa-santana', 'tests')
+});
+const ALLOWED = new Set(Object.keys(PATHS));
 const root = fileURLToPath(new URL('../', import.meta.url));
 const suite = process.argv[2];
 
@@ -14,10 +19,13 @@ if (process.argv.length !== 3 || !ALLOWED.has(suite)) {
   console.error('PUBLIC_SUITE_INVALID_ARGUMENT');
   process.exitCode = 2;
 } else {
-  const directory = join(root, 'tests', suite);
+  const relativeDirectory = PATHS[suite];
+  const directory = join(root, relativeDirectory);
   let files = [];
   let discovered = false;
   try {
+    const rootDirectory = lstatSync(directory);
+    if (!rootDirectory.isDirectory() || rootDirectory.isSymbolicLink()) throw new Error('PUBLIC_SUITE_UNSAFE_DIRECTORY');
     files = readdirSync(directory).filter(name => name.endsWith('.test.mjs')).sort();
     if (files.length < 1 || files.length > 40) throw new Error('PUBLIC_SUITE_FILE_COUNT_INVALID');
     for (const name of files) {
@@ -31,7 +39,7 @@ if (process.argv.length !== 3 || !ALLOWED.has(suite)) {
     process.exitCode = 1;
   }
   if (discovered) {
-    const args = ['--test', '--test-reporter=tap', ...files.map(name => join('tests', suite, name))];
+    const args = ['--test', '--test-reporter=tap', ...files.map(name => join(relativeDirectory, name))];
     const child = spawnSync(process.execPath, args, {
       cwd: root,
       shell: false,

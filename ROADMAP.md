@@ -228,3 +228,10 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **PROGRESSO DO ROADMAP:** subetapa T3 **100,00% concluída | 0,00% restante** (1,25h/1,25h); fase E-ARQ **65,00% concluída | 35,00% restante** (3,25/5,00h); projeto E-TEST+E-ARQ **81,03% concluído | 18,97% restante** (11,75/14,50h). Baseline **14,50h inalterado**. Histórico Weine F0–F16 15h e total 19h/92,11% preservados; P4.1 L1/L2 ainda pendente, E-INFRA-L2 adiada, PR #4 bloqueado.
 
 **PRÓXIMA:** T4 — atualizar runner, scripts npm, CI/governança e descoberta das novas suites (0,75h), verificando backup e v1 antes, sem apagar testes ou desabilitar gate.
+
+
+## E-ARQ T4 — MIGRACAO CONTROLADA DE RUNNER/NPM/CI (2026-10-17; IMPLEMENTADA, NAO VALIDADA)
+
+**Verificação inicial:** main `5fd08f19383565cd98ba1d08f80fa98b61e4cf4f`, CI `39072237838` SUCCESS 3/3, backup `backup/e-arq-t2-pre-migracao-20261017` preservado no SHA `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`. T0–T3 validadas. **T4 implementada em branch:** runner aceita somente nomes fixos mas descobre testes nos diretórios de projeto; npm suporta 3 áreas e legado; CI mantém gate e dois pilotos, acrescenta legado 35/35 e comum 2/2; CODEOWNERS por área. Contratos e arquivo SHA v1 preservados. Documento: `docs/E-ARQ-T4-RUNNER-CI-MIGRACAO.md`.
+
+**Estado T4:** IMPLEMENTADA, CI do PR e pós-merge + readback ainda pendentes; sem expansão e sem apropriação de 0,75h antes de validar. Progresso validado E-ARQ **65% concluída | 35% restante**, E-TEST ampliado **81,03% concluído | 18,97% restante**. Após T4 validada: E-ARQ **80,00% concluída | 20,00% restante**, E-TEST **86,21% concluído | 13,79% restante** (12,50/14,50h). Próxima T5 — homologação pública da estrutura, 0,50h. Weine histórica 92,11%, P4.1 L1/L2 pendente, E-INFRA-L2 adiada.

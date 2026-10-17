@@ -30,3 +30,10 @@ Os testes publicos sao separados em `tests/weine/moeda-ptbr.test.mjs` e `tests/c
 A organização-alvo terá áreas `weine/` e `casa-santana/` para funcionalidades e testes próprios, e `comum/` para componentes realmente reutilizáveis. **O repositório segue público e não contém os motores financeiros operacionais.** A árvore atual de `tests/` e `src/shared/` será migrada somente depois de inventário, backup e revisão de compatibilidade de contratos fixados.
 
 Consulte o **[roadmap de implantação E-ARQ (T0–T6)](docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md)** e a [decisão de arquitetura ADR-0002](docs/ADR-0002-tres-areas-monorepo.md). O [ROADMAP E-TEST](ROADMAP.md) continua sendo o registro mestre de baselines e evidências.
+
+
+## E-ARQ T4 — comandos da arquitetura em tres areas
+
+Depois da migracao do runner, os pilotos `weine` e `casa-santana` executam diretamente `weine/tests/` e `casa-santana/tests/`; `npm test` inclui tambem `comum/tests/`. Os comandos `npm run test:weine`, `npm run test:casa` e `npm run test:comum` executam as areas respectivas.
+
+Os testes v1 permanecem disponiveis via `npm run test:legacy` e sao executados no gate da CI para preservar regressao. A CI mantem seus tres checks anteriores, sem ampliar permissoes. O comprovante `public-demo-run/v1` segue pinado a `tests/weine/piloto.test.mjs` e `src/shared/centavos-demo.mjs`; estes arquivos nao foram movidos.
