@@ -23,3 +23,10 @@ Nenhum codigo privado e sincronizado automaticamente. Qualquer nova publicacao d
 A biblioteca `src/shared/moeda-ptbr.mjs` expoe `lerCentavosPtBr` e `formatarCentavosPtBr`: parse de texto como `R$ 1.234,56` para `123456` centavos inteiros e formatacao canonica inversa. Aceita somente duas casas decimais, rejeita strings ambiguas/centavos inseguros e nao arredonda. Consulte o [contrato E-COM.1](docs/E-COM-1-conversao-moeda-ptbr.md).
 
 Os testes publicos sao separados em `tests/weine/moeda-ptbr.test.mjs` e `tests/casa-santana/moeda-ptbr.test.mjs`, com dados inteiramente ficticios. **Nao substitui nem testa os motores financeiros privados**, regras de rateio, cobranca, conciliacao, Sheets ou Apps Script. A adocao real exige revisao privada independente.
+
+
+## Arquitetura planejada: Weine / Casa Santana / Comum
+
+A organização-alvo terá áreas `weine/` e `casa-santana/` para funcionalidades e testes próprios, e `comum/` para componentes realmente reutilizáveis. **O repositório segue público e não contém os motores financeiros operacionais.** A árvore atual de `tests/` e `src/shared/` será migrada somente depois de inventário, backup e revisão de compatibilidade de contratos fixados.
+
+Consulte o **[roadmap de implantação E-ARQ (T0–T6)](docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md)** e a [decisão de arquitetura ADR-0002](docs/ADR-0002-tres-areas-monorepo.md). O [ROADMAP E-TEST](ROADMAP.md) continua sendo o registro mestre de baselines e evidências.
