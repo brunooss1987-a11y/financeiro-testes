@@ -198,3 +198,10 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **Fase E-ARQ:** **25,00% concluída | 75,00% restante** (1,25/5h). **Projeto E-TEST+E-ARQ:** **67,24% concluído | 32,76% restante** (9,75/14,50h). Nova expansão NÃO realizada; baseline de 14,50h mantido. Histórico Weine 19h/92,11%, P4.1 privada pendente e E-INFRA-L2 adiada, inalterados.
 
 **Próxima T2 — Backup e plano reversível (0,75h)**. Confirmar HEAD, ref de restauração e SHA-256 do contrato `public-demo.json`, `centavos-demo.mjs` e `piloto.test.mjs` antes de mover arquivos. Não repetir T0/T1 concluídas.
+
+
+## E-ARQ T2 — BACKUP VERIFICÁVEL E ROLLBACK (2026-10-17; EXECUTADA, PR/CI PENDENTES)
+
+**Entregável real:** branch de recuperação `backup/e-arq-t2-pre-migracao-20261017`, commit público `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`, **53/53 arquivos e Git blob IDs idênticos** ao snapshot pré-migração. Digests SHA-256 de manifesto `local-integrity/v1`, somador `centavos-demo.mjs`, piloto, prova e CI verificados por leitura da ref: o somador corresponde ao SHA-256 pinado. Plano de retorno por PR, sem force-push nem reescrita, documentado em `docs/E-ARQ-T2-BACKUP-ROLLBACK.md`. Não é backup offsite/imutável e a restauração operacional ainda NÃO foi executada; branch deve ser reconferida em T3.
+
+**T2 0,75h já previsto no E-ARQ 5h** — nenhuma expansão. Estado: EXECUTADA/VERIFICADA EM LEITURA, **NÃO VALIDADA ATÉ CI PR E MAIN + READBACK**. Até então E-ARQ 25% e E-TEST ampliado 67,24% validados; após aprovação E-ARQ **40,00% concluída | 60,00% restante** (2/5h), E-TEST ampliado **72,41% concluído | 27,59% restante** (10,50/14,50h). Próxima T3 — organização física `weine/`, `casa-santana/`, `comum/`, somente após revalidar o backup. Histórico Weine 92,11% e P4.1 bloqueada/infra adiada preservados.
