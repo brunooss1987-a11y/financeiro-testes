@@ -29,7 +29,17 @@ test('E-ARQ T3: as tres areas executam 37 casos publicos sem substituir suite v1
     shell: false,
     windowsHide: true,
     timeout: 90000,
-    maxBuffer: 2_000_000
+    maxBuffer: 2_000_000,
+    // O test runner Node injeta NODE_TEST_CONTEXT no processo atual.
+    // Nao herdamos essa variavel nem segredos/ambiente de GitHub no filho:
+    // o node --test precisa funcionar como CLI autonoma, com stdout TAP.
+    env: {
+      PATH: process.env.PATH || '',
+      HOME: process.env.HOME || '',
+      TMPDIR: process.env.TMPDIR || '',
+      CI: 'true',
+      NODE_OPTIONS: ''
+    }
   });
   assert.equal(run.error, undefined, 'Execucao da estrutura falhou');
   assert.equal(run.signal, null, 'Execucao da estrutura interrompida');
