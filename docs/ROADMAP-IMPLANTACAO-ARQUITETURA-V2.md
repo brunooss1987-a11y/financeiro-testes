@@ -3,7 +3,7 @@
 **Data de aprovação do planejamento:** 2026-10-17.
 **Repositório alvo:** `brunooss1987-a11y/financeiro-testes` (público; conteúdo somente publicável).
 **Decisão de arquitetura:** **Weine / Casa Santana / Comum**, cada projeto com autonomia, a área comum apenas para módulos realmente reutilizáveis.
-**Estado atual (2026-10-17):** T0–T5 **VALIDADAS** no hub público; T6 **DOCUMENTADA EM BRANCH, validação PR/CI pendente**. O histórico da decisão T0 e de cada fase permanece nas seções abaixo.
+**Estado final (2026-10-17): E-ARQ T0–T6 VALIDADA (5,00/5,00h = 100%)** no hub público. O histórico de cada etapa permanece nas seções abaixo. P4.1 privada é uma pendência separada, não homologada.
 
 ## 1. Resultado esperado
 
@@ -59,7 +59,7 @@ A `main` já tem `tests/weine/*.test.mjs`, `tests/casa-santana/*.test.mjs`, `src
 | **T3 — Criação e reorganização das três áreas** | **1,25h** | Três diretórios com entradas próprias, 10 testes copiados e contrato comum, mais prova transitória de 37 casos | PR #38, CI PR/main 3/3, v1 e backup inalterados, readback | **VALIDADA — 100%** |
 | **T4 — Atualização de runner, scripts e CI** | **0,75h** | Runner das novas áreas; npm e legado; CI Comum; CODEOWNERS | PR #40, CI PR/main 3/3, readback e cobertura integral | **VALIDADA — 100%** |
 | **T5 — Homologação pública da estrutura** | **0,50h** | Cinco testes T5 e relatório público de homologação | PR #42, CI PR/main 3/3; gate 26/26, legado 35/35, Comum 2/2, pilotos 18/17 | **VALIDADA — 100%** |
-| **T6 — Documentação e transição de manutenção** | **0,50h** | README e READMEs de cada área, ADR atualizada e guia de manutenção; ROADMAP/HANDOFF | Links/escopo conferidos; PR/main CI 3/3, readback e Drive | **IMPLEMENTADA EM BRANCH; ACEITE PENDENTE** |
+| **T6 — Documentação e transição de manutenção** | **0,50h** | README/READMEs, ADR atualizada e guia de manutenção | PR #44, CI do PR/main 3/3, links e readback | **VALIDADA — 100%** |
 | **TOTAL** | **5,00h** | | | |
 
 Dependências: **T0 → T1 → T2 → T3 → T4 → T5 → T6**. Não pular etapas nem repetir as já aprovadas. Caso T1/T2 identifique risco que exija outro esforço, tratá-lo como **expansão adicional declarada antes da execução**; não reduzir percentuais silenciosamente. **Após T2, qualquer operação estrutural começa por verificar novamente backup e estado da main.**
@@ -145,3 +145,12 @@ Cinco testes de aceite acrescentados à suite de segurança sem apagar nenhum te
 **T6 IMPLEMENTADA EM BRANCH (ainda NÃO VALIDADA):** corrigidos README principal e READMEs `weine/`, `casa-santana/` e `comum/`, que descreviam incorretamente a arquitetura já implantada como futura; atualizada a ADR-0002 com seção de estado atual preservando o contexto da decisão original; criado `docs/E-ARQ-GUIA-MANUTENCAO.md`, com destino de componentes exclusivos/compartilhados, comandos reais, critérios de PR, rollback, preservação de v1, testes e responsabilidades. Links Markdown internos conferidos contra a árvore versionada, sem ausências. Não houve mudança de código, runner, CI, manifestos ou motor financeiro.
 
 **Status e pesos:** T6 **DOCUMENTADA, mas PENDENTE** de revisão PR, três checks em PR e main e readback. Progresso oficialmente validado permanece E-ARQ **90,00% concluída | 10,00% restante**, E-TEST ampliado **89,66% concluído | 10,34% restante**. **Somente após T6 validada:** E-ARQ **5,00/5,00h = 100,00% concluída | 0,00% restante**; E-TEST ampliado **13,50/14,50h = 93,10% concluído | 6,90% restante**, correspondente exclusivamente à **P4.1 privada (1h) ainda pendente de L1/L2**. Histórico Weine 19h/92,11% e E-INFRA-L2 adiada preservados. Próxima ação após T6: verificar viabilidade/autorização privada L1/L2, **sem começar infraestrutura não autorizada**.
+
+
+## E-ARQ T6 — Documentação de manutenção VALIDADA / ENCERRAMENTO DA E-ARQ (2026-10-17)
+
+**T6 VALIDAÇÃO COMPROVADA:** PR #44 de documentação incorporado à `main` em `7a7c30dc656cc3191df78e72d692128289d75948`. CI do PR [39074418426](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39074418426) e CI pós-merge [39074467157](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39074467157), ambas **COMPLETED SUCCESS 3/3**. Readback da `main` confirmou README, guias Weine/Casa Santana/Comum, guia de manutenção e ADR, além dos blobs originais do manifesto `local-integrity/v1` (`06f1eca7...`) e fonte fictícia pinada (`734b5809...`). A referência `backup/e-arq-t2-pre-migracao-20261017` ainda aponta a `53a4a6eba6ada83b4bcee1f28824257799bfa4b0` e não é imutável nem offsite. O PR #44 alterou exclusivamente arquivos documentais, sem mover fontes nem eliminar testes. Os links Markdown internos dos seis guias/ADR foram conferidos contra a árvore, sem destinos ausentes. A organização em três áreas, os comandos npm/CI e os caminhos históricos pinados estão explicados para a equipe de manutenção.
+
+**PROGRESSO DEFINITIVO:** T6 **0,50/0,50h = 100,00% concluída | 0% restante**. Fase E-ARQ **5,00/5,00h = 100,00% concluída | 0% restante**. Projeto E-TEST+E-ARQ (baseline **14,50h**) **13,50/14,50h = 93,10% concluído | 6,90% restante**. **P4.1 (1,00h)** é a única pendência desse baseline, requer atestação privada L1/L2 não disponível nesta CI pública. Não houve expansão; histórico Weine F0–F16 (15h/100%) e total histórico 19h/92,11% inalterados, E-INFRA-L2 10–16h ADIADA e fora do baseline.
+
+**Próxima ação dependente de autorização humana:** confirmar se existe ambiente privado L1/L2 autorizado e evidência/proveniência de código-fonte e testes de cada motor financeiro. **NÃO** mesclar PR #4 ou iniciar VM/OAuth/Cloud/Google Sheets sem as condições de segurança. Se ausentes, manter P4.1 **BLOQUEADA** e registrar interrupção operacional, sem reexecutar fases já aprovadas.
