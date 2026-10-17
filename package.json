@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/weine/*.test.mjs tests/casa-santana/*.test.mjs",
-    "test:weine": "node --test tests/weine/*.test.mjs",
-    "test:casa": "node --test tests/casa-santana/*.test.mjs",
-    "guard": "node tools/check-publication.mjs"
+    "test": "node --test weine/tests/*.test.mjs casa-santana/tests/*.test.mjs comum/tests/*.test.mjs",
+    "test:weine": "node --test weine/tests/*.test.mjs",
+    "test:casa": "node --test casa-santana/tests/*.test.mjs",
+    "guard": "node tools/check-publication.mjs",
+    "test:comum": "node --test comum/tests/*.test.mjs",
+    "test:legacy": "node --test tests/weine/*.test.mjs tests/casa-santana/*.test.mjs"
   },
   "dependencies": {},
   "devDependencies": {}
