@@ -250,9 +250,16 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - **BASELINE EXPLICITO:** E-TEST 9,50h, 8,50 validadas (89,47%) ANTES de E-ARQ; novo baseline E-TEST + E-ARQ **14,50h**, inicialmente 8,50/14,50=**58,62% concluído | 41,38% restante**. Após validar T0 de 0,75h, 9,25/14,50=**63,79% concluído | 36,21% restante**; E-ARQ 15%/85%. Mudança percentual é expansão, não regressão. Weine histórica 15h F0–F16 e 19h/92,11% INALTERADOS. P4.1 privada 1h pendente; E-INFRA-L2 10–16h adiada.
 - **PRESERVACAO:** sem alteração de motor financeiro, dados, formulas, IDs, abas, Docs, Sheets, Apps Script, credenciais, OAuth, Windows/VM, CI, contratos pinados, fontes privadas ou refs obsoletas. Drive permanece com gravação bloqueada anteriormente, sem contorno.
 
+## E-ARQ T0 — PLANEJAMENTO DE IMPLANTACAO VALIDADO (2026-10-17)
+
+- **VALIDACAO REAL:** PR #32 merged em `8bd69685224c065b9f6bcda5c24dc7a42dc769c1`. CI PR `39069584418` e CI da main `39069630708` 3/3 COMPLETED SUCCESS. Cinco arquivos documentais relidos na main, nenhuma alteracao de codigo, caminhos, import, workflow, manifesto ou sistema financeiro.
+- **DECISAO ARQUITETURAL OFICIAL:** tres areas autonomas `weine/`, `casa-santana/`, `comum/`, com CI/governanca transversais na raiz e sem transferir motores privados. A E-ARQ tem roadmap especializado `docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md` e ADR-0002. **T0 VALIDADA**, T1–T6 PENDENTES.
+- **PESOS:** expansao E-ARQ estimada 5,00h antes de codigo; fase **0,75/5,00h=15,00% concluida | 85,00% restante**. E-TEST+E-ARQ baseline **14,50h**, **9,25/14,50h=63,79% concluido | 36,21% restante**. A queda desde 89,47% anterior decorre somente da adicao formal de 5h ao denominador; trabalho anterior de 8,50h preservado. Weine historica 19h/92,11% e F0–F16 15h/100% inalteradas.
+- **RESTRICOES E RISCOS:** runner usa `tests/weine` e `tests/casa-santana`; `local-integrity/v1` e `prove-public-demo-run.mjs` fixam `src/shared/centavos-demo.mjs`, SHA-256 e texto de import; necessidade de mapa completo e backup antes da mudanca estrutural. P4.1 L1/L2 privados NAO validados, PR #4 aberto/bloqueado, E-INFRA-L2 adiada. Drive nao sincronizado por bloqueio de escrita anterior, sem contorno.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-1. Conferir diff do PR T0 (somente roadmap/ADR/README/ROADMAP/HANDOFF), os três checks da branch e da main, e readback após merge. Só então marcar **T0 VALIDADA** no roadmap específico e geral, com evidências e progresso ponderado.
-2. Se T0 for aprovada, iniciar **T1 — inventário e mapa de dependências (0,50h)**, sem mover nenhum arquivo. Identificar todos os imports, comandos, módulos comuns, scripts, hashes/contratos, testes, docs e caminhos pinados. Não repetir T0 já validada.
-3. Antes de T3 e T4, completar T2 — backup e rollback verificáveis. Preservar `src/shared/centavos-demo.mjs` v1/hash, comprovante público, três checks, gate e PR #4 bloqueado. Não fazer migração silenciosa nem publicar código privado.
-4. Manter P4.1 L1/L2 pendente, E-INFRA-L2 adiada, histórico Weine 92,11%; novo E-TEST 14,50h com pesos E-ARQ declarados. Não contornar bloqueio Drive.
+1. Verificar main, PR #32, CI da branch `39069584418`, CI pós-merge `39069630708`, readback do roadmap específico, ADR-0002 e deste HANDOFF; nao repetir T0.
+2. **Executar T1 — Inventário e mapa de dependências (0,50h)**, somente em leitura, identificando arquivos, imports, runners, npm scripts, contrato v1, SHA fixos, testes, docs e regras de segurança. Registrar matriz e validar antes de T2.
+3. **Somente depois de T1 validar, executar T2 (backup/rollback)**. Nao mover diretórios, nao atualizar hash pinado silenciosamente, nao criar symlinks nem alterar os três checks até os portões de migração. Preservar fontes privadas/planilhas/formulas/dados reais/PR #4; E-INFRA-L2 segue adiada.
+4. Manter progresso oficial E-ARQ 15%/85%, E-TEST ampliado 63,79%/36,21% e Weine histórica 92,11%, sujeito a verificação real em ciclo posterior. O Drive segue com gravação bloqueada anteriormente; não contornar.

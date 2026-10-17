@@ -3,7 +3,7 @@
 **Data de aprovação do planejamento:** 2026-10-17.
 **Repositório alvo:** `brunooss1987-a11y/financeiro-testes` (público; conteúdo somente publicável).
 **Decisão de arquitetura:** **Weine / Casa Santana / Comum**, cada projeto com autonomia, a área comum apenas para módulos realmente reutilizáveis.
-**Estado:** T0 — planejamento DOCUMENTADO EM BRANCH, aguardando CI, merge e readback. **Nenhuma migração de código ocorreu neste ciclo.**
+**Estado:** **T0 VALIDADA / 100% concluída**, implantação física T1–T6 PENDENTE. **Nenhuma migração de código ocorreu neste ciclo.**
 
 ## 1. Resultado esperado
 
@@ -53,7 +53,7 @@ A `main` já tem `tests/weine/*.test.mjs`, `tests/casa-santana/*.test.mjs`, `src
 
 | Subetapa | Esforço | Entrega obrigatória | Validação/aceite | Situação |
 |---|---:|---|---|---|
-| **T0 — Arquitetura, escopo e roadmap** | **0,75h** | Este roadmap, ADR-0002, referência no ROADMAP/HANDOFF principal | Diff só documental; CI 3/3 em PR e na main; readback | EXECUTADA EM BRANCH; VALIDAÇÃO PENDENTE |
+| **T0 — Arquitetura, escopo e roadmap** | **0,75h** | Este roadmap, ADR-0002, referência no ROADMAP/HANDOFF principal | Diff só documental; CI 3/3 em PR e na main; readback | **VALIDADA** — PR #32 / CI 39069584418 e 39069630708 |
 | **T1 — Inventário e mapa de dependências** | **0,50h** | Matriz de todos os caminhos, imports, comandos e proprietários de arquivo existentes | Cobertura verificada dos caminhos de teste, CLI, docs e contratos; não omitir dependências | PENDENTE |
 | **T2 — Backup e plano de migração reversível** | **0,75h** | Snapshot com HEAD, backup de branch/ref antes das mudanças estruturais, estratégia de rollback e tratamento versionado de v1/v2 | Backup verificável, integridade de `centavos-demo` e contratos originais, teste de restauração documental | PENDENTE |
 | **T3 — Criação e reorganização das três áreas** | **1,25h** | `weine/`, `casa-santana/`, `comum/` com fontes/testes públicos; preservação temporária dos caminhos v1 necessários | Imports coerentes, nenhuma fonte privada, compatibilidade demonstrativa preservada | PENDENTE |
@@ -84,7 +84,15 @@ O novo percentual menor decorre exclusivamente da **expansão explícita de esco
 - **Rollback:** reverter o PR estrutural mediante PR reverso, utilizando o HEAD e backup previamente conferidos; nunca tentar correção por force-push. Validar novamente os três checks e readback.
 - **Avaliação da experiência:** coerência da árvore, previsibilidade da localização de arquivos, independência dos módulos, segurança, consistência com contratos anteriores e facilidade de manutenção. Se reprovada, corrigir a mesma etapa autonomamente antes de avançar.
 
-## 6. Próximas ações
+## 6. Evidências de validação de T0 (2026-10-17)
+
+- [PR #32](https://github.com/brunooss1987-a11y/financeiro-testes/pull/32) **MERGED** na main; commit público `8bd69685224c065b9f6bcda5c24dc7a42dc769c1`.
+- CI do PR [39069584418](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39069584418) e CI pós-merge [39069630708](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39069630708): **COMPLETED SUCCESS 3/3** (Gate de publicacao, Piloto weine, Piloto casa-santana).
+- Revisão do diff: **cinco arquivos apenas documentais**, nenhuma fonte, teste, workflow, contrato, formula ou credencial modificados. Readback da main confirmou este roadmap, ADR-0002, README, ROADMAP e HANDOFF.
+- **T0 validada = 0,75/0,75h (100%)**. E-ARQ = **0,75/5,00h = 15% concluída, 85% restante**. E-TEST ampliado = **9,25/14,50h = 63,79% concluído, 36,21% restante**. **Proxima: T1 — Inventário e mapa de dependências (0,50h)**, antes de qualquer migração.
+- O espelho dos documentos no Google Drive não foi sincronizado (bloqueio de gravação previamente observado). GitHub `main` é a evidência versionada verificada.
+
+## 7. Próximas ações
 
 Após a publicação e validação de **T0**, iniciar **T1 — inventário e mapa de dependências** em leitura, começando pela HEAD real; não mover diretórios antes de **T2 — backup e rollback**. Documentar sempre o concluído, a fase, o projeto total, o restante e a próxima subetapa. Handoff do projeto termina obrigatoriamente com `PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO`.
 

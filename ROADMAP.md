@@ -171,3 +171,12 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **Bloqueios estruturais reconhecidos:** `contracts/public-demo.json` fixa `src/shared/centavos-demo.mjs` com SHA-256; `check-local-contract.mjs`, `prove-public-demo-run.mjs`, runner, imports, testes e workflows fixam caminhos legados. T1 deve inventariar, T2 deve registrar BACKUP verificável e rollback, e somente T3/T4 poderá migrar com compatibilidade/versionamento v2 explícitos. Preservar os mesmos três checks, `contents: read`, gate, hashes originais, PR #4 bloqueado, históricos e repositórios privados.
 
 **Próxima subetapa: T1 — inventário e mapa de dependências (0,50h)**, somente após T0 VALIDADA por CI da branch e pós-merge + readback; sem migração antecipada.
+
+
+## E-ARQ T0 — PLANEJAMENTO VALIDADO (2026-10-17)
+
+**Subetapa concluída e validada:** T0 — arquitetura, escopo, sete subetapas e roadmap de implantação do monorepo Weine / Casa Santana / Comum. [PR #32](https://github.com/brunooss1987-a11y/financeiro-testes/pull/32) merged no commit `8bd69685224c065b9f6bcda5c24dc7a42dc769c1`; CI do PR `39069584418` e CI pós-merge `39069630708` **SUCCESS 3/3**. Readback confirmou `docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md`, `docs/ADR-0002-tres-areas-monorepo.md`, README, ROADMAP e HANDOFF na main. **Nenhum arquivo de código, contrato, runner ou CI foi movido.** O roadmap específico foi marcado T0 VALIDADA.
+
+**PROGRESSO DO ROADMAP:** T0 100% concluída | 0% restante; fase E-ARQ **15,00% concluída | 85,00% restante** (0,75/5,00h). E-TEST + E-ARQ **63,79% concluído | 36,21% restante** (9,25/14,50h). Baseline pré-expansão 9,50h com 8,50h validadas (89,47%) foi preservado historicamente; alteração percentual explicada pelo escopo adicional de 5,00h. Weine F0–F16 15h 100% e total histórico 19h 92,11% INALTERADOS. P4.1 L1/L2 privados pendentes; E-INFRA-L2 adiada.
+
+**PRÓXIMA:** T1 — inventário e mapa de dependências (0,50h) conforme o novo roadmap. Verificar a main antes de iniciar; não mover arquivos até T2 (backup e rollback) e não repetir T0.
