@@ -57,7 +57,7 @@ A `main` já tem `tests/weine/*.test.mjs`, `tests/casa-santana/*.test.mjs`, `src
 | **T1 — Inventário e mapa de dependências** | **0,50h** | `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`: 52 arquivos e D01–D16 | PR #34, CI PR/main 3/3 e readback | **VALIDADA — 100%** |
 | **T2 — Backup e plano de migração reversível** | **0,75h** | Ref real `backup/e-arq-t2-pre-migracao-20261017`; 53 blobs, digests e rollback em `docs/E-ARQ-T2-BACKUP-ROLLBACK.md` | PR #36, CI PR/main 3/3, readback e branch confirmada | **VALIDADA — 100%** |
 | **T3 — Criação e reorganização das três áreas** | **1,25h** | Três diretórios com entradas próprias, 10 testes copiados e contrato comum, mais prova transitória de 37 casos | PR #38, CI PR/main 3/3, v1 e backup inalterados, readback | **VALIDADA — 100%** |
-| **T4 — Atualização de runner, scripts e CI** | **0,75h** | Runner usa áreas novas; npm executa áreas e legado; CI gate verifica legado e Comum; CODEOWNERS | 3 checks PR/main, 21 segurança + 35 v1 + 2 comum + 18/17 pilotos | **IMPLEMENTADA EM BRANCH; VALIDAÇÃO PENDENTE** |
+| **T4 — Atualização de runner, scripts e CI** | **0,75h** | Runner das novas áreas; npm e legado; CI Comum; CODEOWNERS | PR #40, CI PR/main 3/3, readback e cobertura integral | **VALIDADA — 100%** |
 | **T5 — Homologação pública da estrutura** | **0,50h** | Testes regressivos e de isolamento das três áreas, readback pós-merge, comparação da suíte anterior | CI 3/3 antes e depois do merge; nenhum teste existente eliminado, suprimido ou convertido em falso PASS | PENDENTE |
 | **T6 — Documentação e transição de manutenção** | **0,50h** | README, mapa de contribuição por área, ROADMAP/HANDOFF e evidência da arquitetura implantada | Histórico e estados atualizados; handoff termina na próxima ação sujeita à verificação | PENDENTE |
 | **TOTAL** | **5,00h** | | | |
@@ -126,8 +126,8 @@ Em leitura da `main` `fb849ef2547615ba042222fe1d2b829c55d90254`, a árvore Git f
 **Progresso:** T3 **1,25/1,25h = 100%**, E-ARQ **3,25/5,00h = 65,00% concluída | 35,00% restante**, E-TEST ampliado **11,75/14,50h = 81,03% concluído | 18,97% restante**. Próxima **T4 — atualizar runner/npm/CI e governança (0,75h)** sem perder v1 ou cobertura.
 
 
-## E-ARQ T4 — Migração da execução implementada, ainda não validada (2026-10-17)
+## E-ARQ T4 — Migração da execução VALIDADA (2026-10-17)
 
 Runner de suites `weine` e `casa-santana` passa a apontar para os diretórios próprios com allowlist estática; `security` mantém os testes de segurança. `package.json` expõe comandos por área e legado v1; o gate de publicação acrescenta regressão de 35 testes originais e dois testes comuns, mantendo os três checks. `CODEOWNERS` nomeia as três áreas. Relatório técnico: `docs/E-ARQ-T4-RUNNER-CI-MIGRACAO.md`.
 
-**Estado:** IMPLEMENTADA, pendente PR/CI/readback. Não mudar progresso validado antes do aceite: E-ARQ **65% concluída | 35% restante**; E-TEST **81,03% concluído | 18,97% restante**. Após validar, E-ARQ **80%/20%**, E-TEST **86,21%/13,79%**; próxima T5 (0,50h). Sem expansão adicional e sem alteração do baseline 14,50h.
+**Estado VALIDADA:** PR #40 incorporado à main no commit público `aa85aac7374c0c61f111fd0a8af7b5eb76688c29`. CI do PR [39072699368](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39072699368) e CI pós-merge [39072770519](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39072770519), **COMPLETED SUCCESS 3/3**. Logs do gate: 21/21 segurança com prova de 37/37 nas novas áreas, 35/35 legado, 2/2 Comum, `PUBLIC_GUARD=PASS`; pilotos nos diretórios novos Weine 18/18 e Casa Santana 17/17. Readback da main confirmou runner, npm, CI, ROADMAP/HANDOFF, contrato `local-integrity/v1` e fonte hashada originais, e backup no SHA fixo. Progresso T4 **100%/0%**; E-ARQ **80,00% concluída | 20,00% restante**; E-TEST ampliado **86,21% concluído | 13,79% restante**. Sem expansão adicional ou alteração do baseline 14,50h. Próxima T5 (0,50h).

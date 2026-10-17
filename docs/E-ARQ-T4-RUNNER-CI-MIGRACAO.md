@@ -1,6 +1,6 @@
 # E-ARQ T4 — Runner, comandos e governança das três áreas
 
-**Data:** 2026-10-17. **Subetapa:** T4 — 0,75h dentro das 5h E-ARQ já aprovadas (sem expansão). **Estado:** IMPLEMENTADA em branch, AINDA NÃO VALIDADA até CI PR/main e readback.
+**Data:** 2026-10-17. **Subetapa:** T4 — 0,75h dentro das 5h E-ARQ já aprovadas (sem expansão). **Estado final:** **T4 VALIDADA na main** por PR #40, CI PR/main e readback; execução dos testes originais e novos preservada.
 
 ## Situação conferida antes das mudanças
 - `main` no commit `5fd08f19383565cd98ba1d08f80fa98b61e4cf4f`; CI `39072237838` SUCCESS 3/3; T3 validada.
@@ -24,6 +24,12 @@
 **Até T4 validar:** E-ARQ 3,25/5,00h = **65,00% concluída | 35,00% restante**; E-TEST ampliado 11,75/14,50h = **81,03% concluído | 18,97% restante**.
 **Se T4 validar:** T4 0,75/0,75h = 100%; E-ARQ **4,00/5,00h = 80,00% concluída | 20,00% restante**; E-TEST ampliado **12,50/14,50h = 86,21% concluído | 13,79% restante**. Weine histórica 19h/92,11% inalterada, P4.1 1h privada L1/L2 pendente, E-INFRA-L2 adiada.
 
+## Evidências finais de validação de T4
+
+PR #40 incorporado à main no commit público `aa85aac7374c0c61f111fd0a8af7b5eb76688c29`. CI do PR [39072699368](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39072699368) e CI pós-merge [39072770519](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39072770519), **COMPLETED SUCCESS 3/3**. Logs do gate: 21/21 segurança com prova de 37/37 nas novas áreas, 35/35 legado, 2/2 Comum, `PUBLIC_GUARD=PASS`; pilotos nos diretórios novos Weine 18/18 e Casa Santana 17/17. Readback da main confirmou runner, npm, CI, ROADMAP/HANDOFF, contrato `local-integrity/v1` e fonte hashada originais, e backup no SHA fixo.
+
+**PROGRESSO DO ROADMAP:** T4 **0,75/0,75h = 100,00% concluída | 0,00% restante**; E-ARQ **4,00/5,00h = 80,00% concluída | 20,00% restante**; E-TEST+E-ARQ **12,50/14,50h = 86,21% concluído | 13,79% restante**. Nenhuma expansão e baseline mantido. O teste de ponte T3 segue na CI em conjunto com o runner T4; sua eventual simplificação deverá manter toda cobertura e falhar fechado.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-Verificar PR, logs e resultados da CI; corrigir falhas reais antes de incorporar. Somente após CI pós-merge e readback marcar T4 VALIDADA nos dois roadmaps e HANDOFF. Próxima subetapa **T5 — homologação pública e verificação da estrutura (0,50h)**, sem acesso aos motores privados.
+Verificar PR e CIs de T4, este arquivo e os roadmaps na main. Avançar somente a **T5 — Homologação pública da estrutura (0,50h)**, avaliando dependências, isolamento, cobertura, scripts e integridade v1/backup, sem testes privados. Não repetir T4 concluída.
