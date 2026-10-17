@@ -180,3 +180,12 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **PROGRESSO DO ROADMAP:** T0 100% concluída | 0% restante; fase E-ARQ **15,00% concluída | 85,00% restante** (0,75/5,00h). E-TEST + E-ARQ **63,79% concluído | 36,21% restante** (9,25/14,50h). Baseline pré-expansão 9,50h com 8,50h validadas (89,47%) foi preservado historicamente; alteração percentual explicada pelo escopo adicional de 5,00h. Weine F0–F16 15h 100% e total histórico 19h 92,11% INALTERADOS. P4.1 L1/L2 privados pendentes; E-INFRA-L2 adiada.
 
 **PRÓXIMA:** T1 — inventário e mapa de dependências (0,50h) conforme o novo roadmap. Verificar a main antes de iniciar; não mover arquivos até T2 (backup e rollback) e não repetir T0.
+
+
+## E-ARQ T1 — INVENTÁRIO DE DEPENDÊNCIAS (2026-10-17; IMPLEMENTADA EM LEITURA, CI PENDENTE)
+
+**Base conferida:** `main` `fb849ef2547615ba042222fe1d2b829c55d90254`, CI `39069814621` 3/3 SUCCESS, PR #33 merged, T0 validada. **Entregável T1:** `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md` (52 arquivos, 12 testes, 6 ferramentas, 2 fontes publicáveis, 16 dependências D01–D16, mapa de imports estáticos/dinâmicos, scripts, runner, workflow, manifestos e documentos). Trabalho inteiramente em leitura de conteúdo público, **não houve mudança de código, contrato, fórmula, arquivo financeiro, repositório privado, CI ou caminho**.
+
+**T1 0,50h integra os pesos E-ARQ 5,00h já declarados**; não é expansão nova. STATUS: EXECUTADA EM BRANCH, PENDENTE de aprovação PR/CI + readback. Progresso **validado por enquanto**: E-ARQ 0,75/5h = 15%, E-TEST 9,25/14,50h = 63,79%. **Quando T1 validada**, E-ARQ **1,25/5,00h = 25,00% concluído | 75,00% restante**, E-TEST ampliado **9,75/14,50h = 67,24% concluído | 32,76% restante**; histórico Weine 19h/92,11% inalterado. P4.1 1h pendente e E-INFRA-L2 adiada.
+
+**Próxima:** T2 — backup verificável e rollback antes de T3/T4. Não mover `src/shared/centavos-demo.mjs`, contrato v1 ou testes, nem relaxar o gate.
