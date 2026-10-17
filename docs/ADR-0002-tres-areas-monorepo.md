@@ -1,7 +1,7 @@
 # ADR-0002 — Áreas autônomas Weine, Casa Santana e Comum
 
 **Data:** 2026-10-17
-**Estado:** **decisão arquitetural VALIDADA na main** (T0 concluída); implantação física ainda NÃO EXECUTADA.
+**Estado:** decisão T0 VALIDADA; implantação T1–T5 VALIDADA na main, T6 EM DOCUMENTAÇÃO nesta etapa. A seção 'Contexto' descreve a situação anterior à migração.
 
 ## Contexto
 
@@ -38,3 +38,12 @@ Roadmap especializado ligado ao `ROADMAP.md`, status e baselines transparentes, 
 ## Evidência de aceite de T0
 
 PR #32 incorporado na main em `8bd69685224c065b9f6bcda5c24dc7a42dc769c1`. CI PR `39069584418` e pós-merge `39069630708`, ambas 3/3 SUCCESS; readback de roadmap, ADR, README e HANDOFF. E-ARQ T0 validada (0,75h), próxima T1 (inventário 0,50h). Não houve migração estrutural.
+
+
+## Estado atual da implementação (2026-10-17; T6)
+
+A decisão acima continua vigente. As áreas `weine/`, `casa-santana/` e `comum/` já existem e possuem READMEs, pontos de entrada e suítes sintéticas. Os pilotos oficiais rodam em `weine/tests/` e `casa-santana/tests/` desde T4; a suíte `comum/tests/` e o legado são executados no gate. A homologação de T5 foi validada pelos PRs #42/#43 e CI 3/3 pós-merge `39073879857`.
+
+A implementação E-COM.1 permanece no caminho antigo `src/shared/moeda-ptbr.mjs`, com reexportação pela área Comum; `src/shared/centavos-demo.mjs` e `tests/weine/piloto.test.mjs` continuam pinados pelo contrato v1. Por isso as referências desta ADR à fase pré-implantação devem ser lidas como **contexto histórico**, e não como status atual.
+
+A operação de manutenção e as fronteiras de responsabilidade agora estão descritas no [guia E-ARQ](E-ARQ-GUIA-MANUTENCAO.md). Esta atualização de estado não modifica nem revalida o motor financeiro privado de nenhum projeto.
