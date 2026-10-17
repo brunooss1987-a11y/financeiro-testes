@@ -3,7 +3,7 @@
 **Referência:** `main` `fb849ef2547615ba042222fe1d2b829c55d90254` (2026-10-17).
 **Fase:** T1 — inventário e mapa de dependências; esforço **0,50h já previsto** no E-ARQ de 5h.
 **Método:** leitura de árvore Git não truncada, arquivos executáveis/configurações e contratos públicos. Não houve leitura ou cópia de código financeiro privado, alteração de runtime, upload de artefatos ou movimentação de arquivos.
-**Estado da redação:** executada em branch documental; **validar PR, CI e readback** antes de marcar T1 concluída.
+**Estado final:** T1 **VALIDADA NA MAIN**; inventário/relatório publicados, sem executar migração ou backup.
 
 ## 1. Resultado do inventário completo
 
@@ -95,10 +95,14 @@ O legado `centavos-demo` é fictício e compartilhado, mas preso à atestação 
 
 ## 5. Progresso e próxima etapa
 
-**T0 validada anteriormente:** 0,75/5,00h. **T1 auditada em leitura, documento em branch (ainda sem validação de PR/CI):** 0,50h. **Quando T1 for realmente validada:** E-ARQ **1,25/5,00h = 25,00% concluída | 75,00% restante**; E-TEST+E-ARQ **9,75/14,50h = 67,24% concluído | 32,76% restante**. **Até lá**, último estado confirmado permanece E-ARQ 15,00%, E-TEST 63,79%. Nenhuma expansão além das 5h já autorizadas.
+**T0 validada anteriormente:** 0,75/5,00h. **T1 VALIDADA:** 0,50/0,50h (100% da T1). Fase E-ARQ **1,25/5,00h = 25,00% concluída | 75,00% restante**; projeto E-TEST+E-ARQ **9,75/14,50h = 67,24% concluído | 32,76% restante**. Nenhuma expansão além das 5h já autorizadas.
 
 **Próxima subetapa:** **T2 — Backup e plano reversível (0,75h)**, somente após a T1 ser validada na main. O backup deve preceder todas as mudanças físicas T3/T4.
 
+## Evidência final de validação T1
+
+PR #34 merged na main em `af1e50e9ed28097ed769941b12d273596f2dcb8f`; CI do PR [39070166228](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39070166228) e CI pós-merge [39070209547](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39070209547) COMPLETED SUCCESS nos três checks; readback confirmou mapa, roadmap específico, ROADMAP e HANDOFF na main. O PR tinha somente quatro arquivos documentais, nenhum código, runner, contrato, workflow ou dado financeiro alterado.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-Rever diff de T1, resultado dos três checks na PR e na `main`, ler este mapa e os dois roadmaps/HANDOFF já publicados. Se estiverem coerentes, marcar T1 validada e iniciar T2 verificando HEAD e backups reais. Se a revisão encontrar dependência omitida, corrigir T1, sem mover código. Preservar P4.1 privada pendente, E-INFRA-L2 adiada e histórico Weine independente.
+Conferir na próxima retomada os commits e CIs acima antes de repetir trabalho. **Executar T2 — backup verificável e plano reversível (0,75h)**, validando HEAD, refs e hashes originais do contrato v1, do somador e do teste piloto; nenhum movimento estrutural autorizado até esse backup ser confirmado. P4.1 L1/L2 privada pendente e E-INFRA-L2 adiada.
