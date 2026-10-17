@@ -54,7 +54,7 @@ A `main` já tem `tests/weine/*.test.mjs`, `tests/casa-santana/*.test.mjs`, `src
 | Subetapa | Esforço | Entrega obrigatória | Validação/aceite | Situação |
 |---|---:|---|---|---|
 | **T0 — Arquitetura, escopo e roadmap** | **0,75h** | Este roadmap, ADR-0002, referência no ROADMAP/HANDOFF principal | Diff só documental; CI 3/3 em PR e na main; readback | **VALIDADA** — PR #32 / CI 39069584418 e 39069630708 |
-| **T1 — Inventário e mapa de dependências** | **0,50h** | `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`: 52 arquivos e D01–D16 | Verificar 3 checks PR/main, readback; não mover código | **EXECUTADA EM LEITURA / PR E CI PENDENTES** |
+| **T1 — Inventário e mapa de dependências** | **0,50h** | `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`: 52 arquivos e D01–D16 | PR #34, CI PR/main 3/3 e readback | **VALIDADA — 100%** |
 | **T2 — Backup e plano de migração reversível** | **0,75h** | Snapshot com HEAD, backup de branch/ref antes das mudanças estruturais, estratégia de rollback e tratamento versionado de v1/v2 | Backup verificável, integridade de `centavos-demo` e contratos originais, teste de restauração documental | PENDENTE |
 | **T3 — Criação e reorganização das três áreas** | **1,25h** | `weine/`, `casa-santana/`, `comum/` com fontes/testes públicos; preservação temporária dos caminhos v1 necessários | Imports coerentes, nenhuma fonte privada, compatibilidade demonstrativa preservada | PENDENTE |
 | **T4 — Atualização de runner, scripts e CI** | **0,75h** | `package.json`, runner e testes passam a aceitar os novos diretórios; jobs existentes mantidos | Gate de publicação e os mesmos 3 checks, sem permissões adicionais, sem download de privados | PENDENTE |
@@ -99,8 +99,8 @@ Após a publicação e validação de **T0**, iniciar **T1 — inventário e map
 **PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO:** verificar PR e CI de T0 e o estado real da `main`; se validado, atualizar status e executar T1 sem repetir T0. Se algum check falhar, corrigir T0, sem executar alterações estruturais antecipadas.
 
 
-## E-ARQ T1 — Inventário executado, validação pendente (2026-10-17)
+## E-ARQ T1 — Inventário VALIDADO (2026-10-17)
 
 Em leitura da `main` `fb849ef2547615ba042222fe1d2b829c55d90254`, a árvore Git foi verificada sem truncamento: **52 arquivos**, sendo 5 testes Weine, 5 Casa Santana, 2 segurança, 2 fontes compartilhadas, 6 ferramentas, 22 docs, 2 arquivos GitHub e 8 outros arquivos de raiz. O inventário detalhado e a matriz de 16 dependências constam de `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`. **Nenhuma migração, backup ou alteração de código executada nesta etapa.**
 
-**Estado:** T1 EXECUTADA/documentada, **ainda NÃO VALIDADA** até a CI do PR, merge, CI da main e readback. Após aprovação: E-ARQ 1,25/5h = 25% concluído / 75% restante, E-TEST ampliado 9,75/14,5h = 67,24% concluído / 32,76% restante. Até lá permanecem os percentuais validados anteriores T0 (15% e 63,79%). **Próxima etapa T2 — backup e plano reversível (0,75h)**, após aprovação da T1.
+**Estado:** T1 **VALIDADA 0,50/0,50h = 100%**. PR #34 merged na main em `af1e50e9ed28097ed769941b12d273596f2dcb8f`; CI do PR [39070166228](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39070166228) e CI pós-merge [39070209547](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39070209547) COMPLETED SUCCESS nos três checks; readback confirmou mapa, roadmap específico, ROADMAP e HANDOFF na main. O PR tinha somente quatro arquivos documentais, nenhum código, runner, contrato, workflow ou dado financeiro alterado. **E-ARQ 1,25/5,00h = 25,00% concluída | 75,00% restante**. **E-TEST ampliado 9,75/14,50h = 67,24% concluído | 32,76% restante**. **Próxima etapa: T2 — backup e plano reversível (0,75h)**, antes de quaisquer mudanças físicas T3/T4.
