@@ -1,7 +1,13 @@
-# Casa Santana — area publica independente
+# Casa Santana — área pública própria
 
-Area especifica da **Casa Santana** no hub `financeiro-testes`. `src/` expoe apenas exemplos e contratos publicos; `tests/` guarda suites sinteticas de Casa Santana, independentes das da Weine.
+Esta área contém **somente exemplos e testes publicáveis da Casa Santana**. O motor financeiro operacional, recibos, lançamentos, planilhas, credenciais e Apps Script continuam privados.
 
-Nao foram copiados lancamentos, recibos, IDs financeiros, planilhas, Apps Script, credenciais nem rotinas privadas. Funcoes exclusivas publicaveis pertencem aqui mesmo que nao sejam compartilhadas.
+- `src/index.mjs`: entrada pública do projeto, hoje reexportando as funções monetárias de `comum/src/index.mjs`
+- `tests/`: cinco testes sintéticos (17 casos), executados pelo **Piloto casa-santana** na CI
+- `npm run test:casa`: executa a área; `npm test` inclui também Weine e Comum
 
-T3 conserva os caminhos legados e os comprovantes v1; a mudanca do runner/CI sera validada separadamente em T4. Ver `docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md`.
+Funcionalidades específicas e publicáveis da Casa Santana devem permanecer nesta área, mesmo quando não façam sentido para a Weine.
+
+**Legado mantido:** `../tests/casa-santana/` integra `npm run test:legacy` e o gate. Os contratos demonstrativos v1 e o somador histórico não foram movidos. Não atualizar seus caminhos ou hashes sem versionamento de contrato e novas provas.
+
+Ver o [guia de manutenção](../docs/E-ARQ-GUIA-MANUTENCAO.md) e o [ROADMAP E-ARQ](../docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md).
