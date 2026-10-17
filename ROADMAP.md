@@ -189,3 +189,12 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **T1 0,50h integra os pesos E-ARQ 5,00h já declarados**; não é expansão nova. STATUS: EXECUTADA EM BRANCH, PENDENTE de aprovação PR/CI + readback. Progresso **validado por enquanto**: E-ARQ 0,75/5h = 15%, E-TEST 9,25/14,50h = 63,79%. **Quando T1 validada**, E-ARQ **1,25/5,00h = 25,00% concluído | 75,00% restante**, E-TEST ampliado **9,75/14,50h = 67,24% concluído | 32,76% restante**; histórico Weine 19h/92,11% inalterado. P4.1 1h pendente e E-INFRA-L2 adiada.
 
 **Próxima:** T2 — backup verificável e rollback antes de T3/T4. Não mover `src/shared/centavos-demo.mjs`, contrato v1 ou testes, nem relaxar o gate.
+
+
+## E-ARQ T1 — CONCLUÍDA E VALIDADA NA MAIN (2026-10-17)
+
+**Concluído: T1 — Inventário e mapa de dependências (0,50h; 100% da subetapa).** PR #34 merged na main em `af1e50e9ed28097ed769941b12d273596f2dcb8f`; CI do PR [39070166228](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39070166228) e CI pós-merge [39070209547](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39070209547) COMPLETED SUCCESS nos três checks; readback confirmou mapa, roadmap específico, ROADMAP e HANDOFF na main. O PR tinha somente quatro arquivos documentais, nenhum código, runner, contrato, workflow ou dado financeiro alterado. Inventário total: 52 arquivos, 16 acoplamentos D01–D16, imports estáticos/dinâmicos, script npm, runner de suítes, CI, caminhos literais e manifesto `local-integrity/v1`. NENHUMA migração ou backup foi alegado nesta T1.
+
+**Fase E-ARQ:** **25,00% concluída | 75,00% restante** (1,25/5h). **Projeto E-TEST+E-ARQ:** **67,24% concluído | 32,76% restante** (9,75/14,50h). Nova expansão NÃO realizada; baseline de 14,50h mantido. Histórico Weine 19h/92,11%, P4.1 privada pendente e E-INFRA-L2 adiada, inalterados.
+
+**Próxima T2 — Backup e plano reversível (0,75h)**. Confirmar HEAD, ref de restauração e SHA-256 do contrato `public-demo.json`, `centavos-demo.mjs` e `piloto.test.mjs` antes de mover arquivos. Não repetir T0/T1 concluídas.
