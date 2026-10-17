@@ -1,7 +1,7 @@
 # ADR-0002 — Áreas autônomas Weine, Casa Santana e Comum
 
 **Data:** 2026-10-17
-**Estado:** decisão arquitetural DOCUMENTADA; implantação física ainda NÃO EXECUTADA.
+**Estado:** **decisão arquitetural VALIDADA na main** (T0 concluída); implantação física ainda NÃO EXECUTADA.
 
 ## Contexto
 
@@ -33,3 +33,8 @@ A trilha de implantação será a de `docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md
 ## Critérios de aceite da decisão
 
 Roadmap especializado ligado ao `ROADMAP.md`, status e baselines transparentes, HANDOFF operacional para T1, nenhum arquivo financeiro tocado, gate de publicação e três checks da CI aprovados no PR e após merge. A aprovação deste ADR comprova apenas a **decisão de arquitetura**, não a implantação.
+
+
+## Evidência de aceite de T0
+
+PR #32 incorporado na main em `8bd69685224c065b9f6bcda5c24dc7a42dc769c1`. CI PR `39069584418` e pós-merge `39069630708`, ambas 3/3 SUCCESS; readback de roadmap, ADR, README e HANDOFF. E-ARQ T0 validada (0,75h), próxima T1 (inventário 0,50h). Não houve migração estrutural.
