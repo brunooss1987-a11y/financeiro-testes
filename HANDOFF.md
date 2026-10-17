@@ -257,9 +257,17 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - **PESOS:** expansao E-ARQ estimada 5,00h antes de codigo; fase **0,75/5,00h=15,00% concluida | 85,00% restante**. E-TEST+E-ARQ baseline **14,50h**, **9,25/14,50h=63,79% concluido | 36,21% restante**. A queda desde 89,47% anterior decorre somente da adicao formal de 5h ao denominador; trabalho anterior de 8,50h preservado. Weine historica 19h/92,11% e F0–F16 15h/100% inalteradas.
 - **RESTRICOES E RISCOS:** runner usa `tests/weine` e `tests/casa-santana`; `local-integrity/v1` e `prove-public-demo-run.mjs` fixam `src/shared/centavos-demo.mjs`, SHA-256 e texto de import; necessidade de mapa completo e backup antes da mudanca estrutural. P4.1 L1/L2 privados NAO validados, PR #4 aberto/bloqueado, E-INFRA-L2 adiada. Drive nao sincronizado por bloqueio de escrita anterior, sem contorno.
 
+## E-ARQ T1 — INVENTÁRIO E MAPA DE DEPENDÊNCIAS (2026-10-17; PENDENTE DE VALIDAÇÃO)
+
+- **ORIGEM VERIFICADA:** `main` `fb849ef2547615ba042222fe1d2b829c55d90254`, T0 VALIDADA/PR #33 MERGED, CI `39069814621` SUCCESS 3/3; PR #4 aberto e não mesclado.
+- **T1 EXECUTADA EM LEITURA:** árvore da main com 52 arquivos e nenhum truncamento; inventário completo por área (5 testes Weine, 5 Casa Santana, 2 segurança, 6 ferramentas, 2 fontes, 22 docs, 2 arquivos .github, 8 restantes). `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md` lista todos os arquivos de código/teste, agrupa os 30 artefatos auxiliares e documenta riscos D01–D16: imports, npm, runner, CI, contrato `local-integrity/v1` com hash fixado, prova pública com import literal, guard e CODEOWNERS.
+- **ESTADO:** relatório em branch; T1 **NÃO VALIDADA** enquanto PR e CIs 3/3 e readback da main não terminarem. Nenhum caminho movido, nenhum arquivo de código alterado, nenhum backup estrutural alegado. **T2** obrigatoriamente antecede T3/T4.
+- **PROGRESSO:** baseline E-ARQ 5h (T0 0,75h validada, T1 0,5h executada em leitura); E-TEST ampliado 14,50h. Enquanto T1 não validada, fase **15% concluída** e projeto **63,79% concluído**. Após validação comprovada, fase E-ARQ **1,25/5h = 25,00% concluída | 75,00% restante**, projeto **9,75/14,50h = 67,24% concluído | 32,76% restante**. Weine histórica 92,11% inalterada. P4.1 L1/L2 bloqueada, E-INFRA-L2 adiada.
+- **PRESERVAÇÃO:** não alterar códigos financeiros, dados, fórmulas, IDs, históricos, Sheets, Apps Script, OAuth ou VM; não apagar refs Git nem contornar o bloqueio de escrita do Drive. Componentes do hub continuam exclusivamente públicos e sintéticos.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-1. Verificar main, PR #32, CI da branch `39069584418`, CI pós-merge `39069630708`, readback do roadmap específico, ADR-0002 e deste HANDOFF; nao repetir T0.
-2. **Executar T1 — Inventário e mapa de dependências (0,50h)**, somente em leitura, identificando arquivos, imports, runners, npm scripts, contrato v1, SHA fixos, testes, docs e regras de segurança. Registrar matriz e validar antes de T2.
-3. **Somente depois de T1 validar, executar T2 (backup/rollback)**. Nao mover diretórios, nao atualizar hash pinado silenciosamente, nao criar symlinks nem alterar os três checks até os portões de migração. Preservar fontes privadas/planilhas/formulas/dados reais/PR #4; E-INFRA-L2 segue adiada.
-4. Manter progresso oficial E-ARQ 15%/85%, E-TEST ampliado 63,79%/36,21% e Weine histórica 92,11%, sujeito a verificação real em ciclo posterior. O Drive segue com gravação bloqueada anteriormente; não contornar.
+1. Verificar HEAD da main, diff e PR da T1, resultado dos 3 checks exigidos na branch e depois na main. Conferir `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`, ROADMAP geral, roadmap E-ARQ e HANDOFF publicados.
+2. **Se T1 VALIDADA:** atualizar evidências nos três registros, aplicar pesos de T1 (E-ARQ 25%/75%; E-TEST ampliado 67,24%/32,76%) e avançar para **T2 — backup real e rollback (0,75h)**. Não repetir T0/T1.
+3. Antes de reorganizar qualquer caminho, produzir T2 com branch/ref de backup recuperável, hashes e plano reversível. Em especial, proteger `local-integrity/v1`, `centavos-demo.mjs` e `prove-public-demo-run.mjs`, e manter os nomes de três checks e `contents: read`.
+4. P4.1 L1/L2 pendente, PR #4 bloqueado, E-INFRA-L2 adiada; Drive não sincronizado por restrição anterior, sem contorno.
