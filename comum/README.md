@@ -1,7 +1,13 @@
-# Comum — biblioteca publica reutilizavel
+# Comum — utilitários públicos compartilhados
 
-Esta area e **complementar** aos dois projetos e nao substitui `weine/` ou `casa-santana/`. Somente funcoes realmente reutilizaveis devem ser mantidas em `comum/src/`.
+Esta área **complementa** as áreas próprias `weine/` e `casa-santana/`, sem exigir que cada nova função seja compartilhada.
 
-**T3:** `comum/src/index.mjs` reexporta a biblioteca E-COM.1 existente, mantendo a implementacao original no caminho `src/shared/moeda-ptbr.mjs` durante a transicao. A inversao de dependencias, se necessaria, requer revisao e testes na T4.
+- `src/index.mjs`: API pública comum, atualmente reexportando `lerCentavosPtBr` e `formatarCentavosPtBr` da implementação única em `../src/shared/moeda-ptbr.mjs` (caminho relativo ao repositório)
+- `tests/moeda-ptbr.test.mjs`: dois testes do contrato reutilizável, executados com `npm run test:comum`
+- Os testes das duas áreas de projeto usam a entrada comum através de seu respectivo `src/index.mjs`.
 
-`src/shared/centavos-demo.mjs` continua intacto: seu caminho e SHA-256 sao fixados pelo contrato `local-integrity/v1`. Nada nesta area comprova homologacao de motores privados.
+A implementação original foi **mantida** em `src/shared/moeda-ptbr.mjs`; não há uma segunda implementação concorrente. Mover a fonte futuramente requer escopo, atualização consciente de imports e CI.
+
+Separadamente, `src/shared/centavos-demo.mjs` permanece **pinado** pelo manifesto `local-integrity/v1` em `contracts/public-demo.json`. Essa demonstração é fictícia e não representa um motor financeiro privado.
+
+Ver [guia de manutenção](../docs/E-ARQ-GUIA-MANUTENCAO.md) e [contrato público E-COM.1](../docs/E-COM-1-conversao-moeda-ptbr.md).
