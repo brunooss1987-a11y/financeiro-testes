@@ -246,3 +246,10 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **Sincronização Drive realmente confirmada por readback:** apêndices de estado atual inseridos nos Docs E-TEST ROADMAP e HANDOFF, e no checkpoint E-TEST preexistente dentro da pasta Handoffs e Checkpoints, preservando textos históricos de 14/10. O estado versionado e completo permanece no GitHub.
 
 **Próxima:** T5 — Homologação pública da estrutura (0,50h), sem repetir T0–T4, verificando integrações apenas dos exemplos sintéticos e contratos públicos.
+
+
+## E-ARQ T5 — HOMOLOGACAO PUBLICA DA ESTRUTURA (2026-10-17; IMPLEMENTADA, NAO VALIDADA)
+
+**Pré-condições conferidas em leitura:** main `85e086781b32431a35a03f663421ed26db8c752b`, CI `39073086918` 3/3 SUCCESS, backup fixo `backup/e-arq-t2-pre-migracao-20261017` em `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`, contratos e arquivos públicos v1 com blobs preservados, T0–T4 validadas. Implementados cinco testes de homologação em `tests/security/homologacao-tres-areas.test.mjs`: isolamento de diretórios, APIs entre projetos e Comum, runner allowlist com casos negativos, contrato local-integrity/v1 e CI/CODEOWNERS. Sem acesso a motores ou dados privados. Relatório: `docs/E-ARQ-T5-HOMOLOGACAO-PUBLICA.md`.
+
+**Estado T5:** IMPLEMENTADA EM BRANCH, PENDENTE de CI PR, merge, CI main 3/3 e readback; não somar 0,50h antes do aceite. Progresso válido E-ARQ **80,00% concluída | 20,00% restante**, E-TEST ampliado **86,21% concluído | 13,79% restante**. Após validar: E-ARQ **90,00%/10,00%** (4,50/5h), E-TEST **89,66%/10,34%** (13/14,50h). Sem nova expansão, histórico Weine 92,11%, P4.1 L1/L2 privada pendente, PR #4 bloqueado, E-INFRA-L2 adiada. Próxima T6 documentação/transição.
