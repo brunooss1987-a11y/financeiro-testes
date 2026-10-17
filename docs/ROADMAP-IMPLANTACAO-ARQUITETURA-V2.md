@@ -3,7 +3,7 @@
 **Data de aprovação do planejamento:** 2026-10-17.
 **Repositório alvo:** `brunooss1987-a11y/financeiro-testes` (público; conteúdo somente publicável).
 **Decisão de arquitetura:** **Weine / Casa Santana / Comum**, cada projeto com autonomia, a área comum apenas para módulos realmente reutilizáveis.
-**Estado:** **T0 VALIDADA / 100% concluída**, implantação física T1–T6 PENDENTE. **Nenhuma migração de código ocorreu neste ciclo.**
+**Estado atual (2026-10-17):** T0–T5 **VALIDADAS** no hub público; T6 **DOCUMENTADA EM BRANCH, validação PR/CI pendente**. O histórico da decisão T0 e de cada fase permanece nas seções abaixo.
 
 ## 1. Resultado esperado
 
@@ -59,7 +59,7 @@ A `main` já tem `tests/weine/*.test.mjs`, `tests/casa-santana/*.test.mjs`, `src
 | **T3 — Criação e reorganização das três áreas** | **1,25h** | Três diretórios com entradas próprias, 10 testes copiados e contrato comum, mais prova transitória de 37 casos | PR #38, CI PR/main 3/3, v1 e backup inalterados, readback | **VALIDADA — 100%** |
 | **T4 — Atualização de runner, scripts e CI** | **0,75h** | Runner das novas áreas; npm e legado; CI Comum; CODEOWNERS | PR #40, CI PR/main 3/3, readback e cobertura integral | **VALIDADA — 100%** |
 | **T5 — Homologação pública da estrutura** | **0,50h** | Cinco testes T5 e relatório público de homologação | PR #42, CI PR/main 3/3; gate 26/26, legado 35/35, Comum 2/2, pilotos 18/17 | **VALIDADA — 100%** |
-| **T6 — Documentação e transição de manutenção** | **0,50h** | README, mapa de contribuição por área, ROADMAP/HANDOFF e evidência da arquitetura implantada | Histórico e estados atualizados; handoff termina na próxima ação sujeita à verificação | PENDENTE |
+| **T6 — Documentação e transição de manutenção** | **0,50h** | README e READMEs de cada área, ADR atualizada e guia de manutenção; ROADMAP/HANDOFF | Links/escopo conferidos; PR/main CI 3/3, readback e Drive | **IMPLEMENTADA EM BRANCH; ACEITE PENDENTE** |
 | **TOTAL** | **5,00h** | | | |
 
 Dependências: **T0 → T1 → T2 → T3 → T4 → T5 → T6**. Não pular etapas nem repetir as já aprovadas. Caso T1/T2 identifique risco que exija outro esforço, tratá-lo como **expansão adicional declarada antes da execução**; não reduzir percentuais silenciosamente. **Após T2, qualquer operação estrutural começa por verificar novamente backup e estado da main.**
@@ -136,3 +136,12 @@ Runner de suites `weine` e `casa-santana` passa a apontar para os diretórios pr
 ## E-ARQ T5 — Homologação pública VALIDADA (2026-10-17)
 
 Cinco testes de aceite acrescentados à suite de segurança sem apagar nenhum teste anterior: diretórios/ausência de symlinks; API comum com entradas exclusivas Weine e Casa Santana; runner com allowlist e entradas negativas; manifesto de SHA-256 e comprovante v1; CI com gate, permissões e CODEOWNERS preservados. Documento: `docs/E-ARQ-T5-HOMOLOGACAO-PUBLICA.md`. **Estado VALIDADA:** PR #42 incorporado à `main` no commit público `27383adaa750c942c9c03eafcea68eefdef4c690`. CI do PR [39073599636](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39073599636) e CI pós-merge [39073659211](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39073659211) **COMPLETED SUCCESS 3/3**. Gate **26/26** (21 originais + cinco testes T5; prova T3 37/37 incluída), legado **35/35**, Comum **2/2**, pilotos Weine **18/18** e Casa Santana **17/17**, scanner `PUBLIC_GUARD=PASS`. Readback da `main` confirmou arquivo T5, manifesto, somador fictício, piloto e comprovante v1 intactos; branch de backup ainda no SHA `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`. Progresso T5 **100,00% concluída | 0% restante**; fase E-ARQ **90,00% concluída | 10,00% restante**, projeto E-TEST ampliado **89,66% concluído | 10,34% restante**. Não há expansão nem alteração do baseline 14,50h. Próxima T6 — documentação e transição (0,50h).
+
+
+## E-ARQ T6 — Revisão de guias e transição em execução (2026-10-17)
+
+**Origem confirmada:** `main` `a0c1085d10e0626d0a4291e9ac1690f3747b59cc`, CI pós-merge T5 `39073879857` SUCCESS 3/3, backup `backup/e-arq-t2-pre-migracao-20261017` apontando ao commit original `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`. T0–T5 validadas; T6 não havia começado.
+
+**T6 IMPLEMENTADA EM BRANCH (ainda NÃO VALIDADA):** corrigidos README principal e READMEs `weine/`, `casa-santana/` e `comum/`, que descreviam incorretamente a arquitetura já implantada como futura; atualizada a ADR-0002 com seção de estado atual preservando o contexto da decisão original; criado `docs/E-ARQ-GUIA-MANUTENCAO.md`, com destino de componentes exclusivos/compartilhados, comandos reais, critérios de PR, rollback, preservação de v1, testes e responsabilidades. Links Markdown internos conferidos contra a árvore versionada, sem ausências. Não houve mudança de código, runner, CI, manifestos ou motor financeiro.
+
+**Status e pesos:** T6 **DOCUMENTADA, mas PENDENTE** de revisão PR, três checks em PR e main e readback. Progresso oficialmente validado permanece E-ARQ **90,00% concluída | 10,00% restante**, E-TEST ampliado **89,66% concluído | 10,34% restante**. **Somente após T6 validada:** E-ARQ **5,00/5,00h = 100,00% concluída | 0,00% restante**; E-TEST ampliado **13,50/14,50h = 93,10% concluído | 6,90% restante**, correspondente exclusivamente à **P4.1 privada (1h) ainda pendente de L1/L2**. Histórico Weine 19h/92,11% e E-INFRA-L2 adiada preservados. Próxima ação após T6: verificar viabilidade/autorização privada L1/L2, **sem começar infraestrutura não autorizada**.

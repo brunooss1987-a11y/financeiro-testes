@@ -334,8 +334,17 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - **SEGURANÇA E BACKUP:** `backup/e-arq-t2-pre-migracao-20261017` continua apontando ao commit `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`, não protegido como imutável/offsite. Contrato `local-integrity/v1` e comprovante `public-demo-run/v1` preservados nos caminhos legados. Testes sintéticos NÃO provam integridade dos motores reais, E2E financeiro ou L1/L2 privados.
 - **GOOGLE DRIVE:** ROADMAP, HANDOFF e checkpoint E-TEST foram sincronizados e relidos para T4 anteriormente. Registrar T5 no Drive apenas se necessário após fechamento documental, sem reescrever registros históricos ou alegar salvamento sem readback.
 
+## E-ARQ T6 — GUIAS E TRANSIÇÃO EXECUTADOS EM BRANCH (2026-10-17; NÃO VALIDADOS AINDA)
+
+- **BASE REAL:** `main` `a0c1085d10e0626d0a4291e9ac1690f3747b59cc`, T5 validada em PR #42/#43 e CI `39073879857` 3/3 SUCCESS; `backup/e-arq-t2-pre-migracao-20261017` no commit original `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`. T0–T5 já validadas, NÃO repetir.
+- **T6 EXECUTADA APENAS EM BRANCH:** README geral e guias das áreas `weine/`, `casa-santana/`, `comum/` atualizados ao estado T4/T5; ADR-0002 contextualizada sem apagar decisão histórica; criado `docs/E-ARQ-GUIA-MANUTENCAO.md` com mapa de autoria, comandos Node, regressoes, segurança, backup e política de escopo. Links Markdown relativos verificados sem destino ausente. Nenhum código, workflow, manifesto v1, dados financeiros, Apps Script ou planilha foi modificado.
+- **ACEITE PENDENTE:** PR T6, diff apenas documental, três checks de CI PR/main, readback dos guias, ROADMAP/HANDOFF e backup. Até então T6 NÃO VALIDADA.
+- **PESOS:** E-ARQ validada **4,50/5h = 90,00% concluída | 10,00% restante** e projeto E-TEST ampliado **13,00/14,50h = 89,66% concluído | 10,34% restante**. Somente após T6 realmente validada: E-ARQ **100%/0%** e projeto **13,50/14,50h = 93,10% concluído | 6,90% restante**. Resta exclusivamente P4.1 L1/L2 privada (1h), PR #4 bloqueado, E-INFRA-L2 adiada. Weine histórica 19h/92,11% inalterada.
+- **DRIVE:** ROADMAP E-TEST, HANDOFF e checkpoint atualizados e confirmados por readback na T5. Sincronizar fechamento T6 após CI comprovada, preservando registros históricos e lendo de volta cada alteração.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-1. Conferir `main`, PR #42 e suas CIs `39073599636`/`39073659211`, documento T5, ROADMAPs, HANDOFF e backup. Não repetir T0–T5 já validadas.
-2. **Executar T6 — Documentação e transição de manutenção (0,50h)**: revisar README, guias por área, comandos de testes, caminhos de referência e responsabilidades; preservar contratos v1 e evidências históricas. Avaliar coerência, usabilidade dos guias e manutenção; corrigir quaisquer inconsistências antes de concluir.
-3. Se T6 realmente validada, atualizar ambos ROADMAPs e HANDOFF com evidência e baseline. P4.1 1h permanece pendente de L1/L2 privada, PR #4 bloqueado, E-INFRA-L2 adiada. Google Drive apenas com escrita autorizada e readback, sem editar sistemas financeiros reais.
+1. Conferir PR da T6, diff dos guias e ADR, três checks no PR e após merge, readback da main e do backup. Corrigir qualquer inconsistência documental antes de marcar T6 VALIDADA.
+2. Se validada, registrar **E-ARQ 5/5h = 100%** e **E-TEST 13,50/14,50h = 93,10%**, atualizar roadmap geral, roadmap específico, HANDOFF e checkpoint no Drive, com confirmação de gravação/retorno; não repetir T0–T6.
+3. **Próxima pendência real depois da E-ARQ: P4.1 — atestação privada L1/L2 (1h).** Verificar autorização e ambiente privado antes de qualquer operação; não mesclar PR #4 sem prova privada. Se depender de autorização humana ou ambiente isolado inexistente, reportar bloqueio e PARAR em vez de emitir `AUTO_CONTINUAR` em loop.
+4. Preservar `local-integrity/v1`, backup Git não imutável, três checks, motor financeiro e seus dados, fórmulas e IDs, Apps Script e credenciais. E-INFRA-L2 10–16h continua fora do baseline.

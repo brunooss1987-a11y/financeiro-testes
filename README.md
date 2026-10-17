@@ -1,39 +1,42 @@
-# Financeiro-Testes
+# Financeiro-Testes — hub público Weine / Casa Santana / Comum
 
-Hub **publico** de testes offline para Weine e Casa Santana. Ambos os sistemas operacionais permanecem em repositorios **privados**.
+Este repositório reúne **exclusivamente código genérico publicável e testes sintéticos**. Os sistemas financeiros reais da Weine e da Casa Santana permanecem em **repositórios privados**. O sucesso da CI pública **não comprova** saldos, parcelas, pagamentos, Apps Script, Sheets nem homologação L1/L2 privada.
 
-Este repositorio nao acessa planilhas, nao faz deploy, nao solicita OAuth e nao utiliza credenciais financeiras.
+## Três áreas autônomas implantadas
 
-## Suites publicas
+| Área | Uso | Execução |
+| --- | --- | --- |
+| [`weine/`](weine/README.md) | Funções e testes **específicos** da Weine, quando publicáveis | `npm run test:weine` |
+| [`casa-santana/`](casa-santana/README.md) | Funções e testes **específicos** da Casa Santana, quando publicáveis | `npm run test:casa` |
+| [`comum/`](comum/README.md) | Utilitários realmente reutilizáveis pelos dois projetos | `npm run test:comum` |
 
-- Weine: `npm run test:weine`
-- Casa Santana: `npm run test:casa`
-- Ambas: `npm test`
-- Verificacao de arquivos proibidos: `npm run guard`
+**Regra de autoria:** uma funcionalidade exclusiva pertence ao seu projeto; não precisa servir aos dois. Apenas contratos/funções que realmente se repetem devem ser propostos em `comum/`. Essa área **complementa**, não substitui, as demais.
 
-O workflow `.github/workflows/ci.yml` executa suites separadas e exige sucesso no gate de seguranca. O exemplo `src/shared/centavos-demo.mjs` e **codigo ficticio**, nao uma copia do motor de nenhum projeto. Sucesso desses testes demonstra funcionamento do ambiente publico, **nao** homologacao de saldos ou pagamentos reais.
+`weine/src/index.mjs` e `casa-santana/src/index.mjs` são fronteiras públicas próprias e, atualmente, reexportam as funções de moeda da área Comum. A biblioteca E-COM.1 é implementada em `src/shared/moeda-ptbr.mjs` e reexportada por `comum/src/index.mjs`; sua migração física **não ocorreu** para evitar novas mudanças fora do escopo. Consulte [o contrato monetário E-COM.1](docs/E-COM-1-conversao-moeda-ptbr.md).
 
-Consulte [limites da cobertura e continuidade offline](docs/P4-1-continuidade-offline.md), [ROADMAP](ROADMAP.md) e [HANDOFF](HANDOFF.md).
+## Como testar
 
-Nenhum codigo privado e sincronizado automaticamente. Qualquer nova publicacao de codigo precisa passar por revisao de seguranca e autorizacao valida; a transferencia anteriormente bloqueada nao deve ser repetida ou contornada.
+Requer Node.js instalado; os testes atuais não dependem de pacotes externos e não solicitam autenticação.
 
+| Comando | Escopo |
+| --- | --- |
+| `npm test` | Testes atuais de Weine (18), Casa Santana (17) e Comum (2): 37 casos |
+| `npm run test:weine` | Cinco arquivos em `weine/tests/`, 18 casos |
+| `npm run test:casa` | Cinco arquivos em `casa-santana/tests/`, 17 casos |
+| `npm run test:comum` | `comum/tests/`, 2 casos |
+| `npm run test:legacy` | Testes históricos `tests/weine/` e `tests/casa-santana/`, 35 casos |
+| `npm run guard` | Rejeição de conteúdos proibidos nos arquivos públicos versionados |
 
-## E-COM.1 — Conversao BRL pt-BR compartilhada (somente codigo publico)
+Na [CI](.github/workflows/ci.yml) existem **três checks**: Gate de publicação, Piloto weine e Piloto casa-santana. O gate executa **26 testes de segurança** (incluindo cinco testes T5 e a ponte T3 que executa 37 casos das novas áreas), mais a regressão legada, a área Comum e o guard. Os pilotos executam diretamente as áreas novas e só são liberados após o gate. A CI mantém `contents: read`; não faz checkout privado, deploy ou upload de dados.
 
-A biblioteca `src/shared/moeda-ptbr.mjs` expoe `lerCentavosPtBr` e `formatarCentavosPtBr`: parse de texto como `R$ 1.234,56` para `123456` centavos inteiros e formatacao canonica inversa. Aceita somente duas casas decimais, rejeita strings ambiguas/centavos inseguros e nao arredonda. Consulte o [contrato E-COM.1](docs/E-COM-1-conversao-moeda-ptbr.md).
+## Compatibilidade histórica deliberada
 
-Os testes publicos sao separados em `tests/weine/moeda-ptbr.test.mjs` e `tests/casa-santana/moeda-ptbr.test.mjs`, com dados inteiramente ficticios. **Nao substitui nem testa os motores financeiros privados**, regras de rateio, cobranca, conciliacao, Sheets ou Apps Script. A adocao real exige revisao privada independente.
+Os arquivos `src/shared/centavos-demo.mjs`, `contracts/public-demo.json`, `tools/check-local-contract.mjs`, `tools/prove-public-demo-run.mjs` e `tests/weine/piloto.test.mjs` permanecem nos caminhos antigos porque o contrato **`local-integrity/v1`** e a prova pública **`public-demo-run/v1`** dependem de caminho, hash e importação exatos. **Não mover, renomear, editar o hash, criar symlink ou apagar o legado silenciosamente.** Uma migração posterior exige versão de contrato e validação próprias.
 
+Antes de qualquer mudança estrutural, conferir a referência `backup/e-arq-t2-pre-migracao-20261017` e seu SHA registrado no [plano de backup e rollback](docs/E-ARQ-T2-BACKUP-ROLLBACK.md). É uma branch Git de recuperação **não protegida como imutável**, não um backup externo.
 
-## Arquitetura planejada: Weine / Casa Santana / Comum
+## Manutenção e referências
 
-A organização-alvo terá áreas `weine/` e `casa-santana/` para funcionalidades e testes próprios, e `comum/` para componentes realmente reutilizáveis. **O repositório segue público e não contém os motores financeiros operacionais.** A árvore atual de `tests/` e `src/shared/` será migrada somente depois de inventário, backup e revisão de compatibilidade de contratos fixados.
+Leia o [guia de manutenção e contribuição](docs/E-ARQ-GUIA-MANUTENCAO.md), a [decisão arquitetural ADR-0002](docs/ADR-0002-tres-areas-monorepo.md), o [roadmap E-ARQ](docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md), o [ROADMAP geral](ROADMAP.md), o [HANDOFF](HANDOFF.md) e a [política de segurança](SECURITY.md).
 
-Consulte o **[roadmap de implantação E-ARQ (T0–T6)](docs/ROADMAP-IMPLANTACAO-ARQUITETURA-V2.md)** e a [decisão de arquitetura ADR-0002](docs/ADR-0002-tres-areas-monorepo.md). O [ROADMAP E-TEST](ROADMAP.md) continua sendo o registro mestre de baselines e evidências.
-
-
-## E-ARQ T4 — comandos da arquitetura em tres areas
-
-Depois da migracao do runner, os pilotos `weine` e `casa-santana` executam diretamente `weine/tests/` e `casa-santana/tests/`; `npm test` inclui tambem `comum/tests/`. Os comandos `npm run test:weine`, `npm run test:casa` e `npm run test:comum` executam as areas respectivas.
-
-Os testes v1 permanecem disponiveis via `npm run test:legacy` e sao executados no gate da CI para preservar regressao. A CI mantem seus tres checks anteriores, sem ampliar permissoes. O comprovante `public-demo-run/v1` segue pinado a `tests/weine/piloto.test.mjs` e `src/shared/centavos-demo.mjs`; estes arquivos nao foram movidos.
+Publicações devem ser revisadas individualmente. Não transferir arquivos de repositórios privados, dados financeiros reais, IDs/URLs operacionais de planilhas, credenciais ou código Apps Script. O PR #4 e a P4.1 de evidência L1/L2 privada permanecem bloqueados; a E-INFRA-L2 foi adiada.
