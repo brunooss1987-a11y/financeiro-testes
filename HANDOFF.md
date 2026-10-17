@@ -318,9 +318,16 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 - **BACKUP PRESERVADO:** `backup/e-arq-t2-pre-migracao-20261017` mantém SHA `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`, sem imutabilidade ou cópia offsite prometida. Manifesto v1 e fonte pinada mantêm blobs Git originais, além da prova pública sintética.
 - **DRIVE CONFIRMADO:** por ação regular de Google Docs, três documentos E-TEST na pasta Handoffs e Checkpoints foram atualizados e relidos em 17/10/2026: ROADMAP, HANDOFF e checkpoint. Apêndices indicam o progresso 86,21%/13,79% e próxima T5; textos históricos de 14/10 permanecem como histórico e não correspondem ao estado atual. Nenhuma edição Google Sheets/Apps Script foi feita.
 
+## E-ARQ T5 — HOMOLOGACAO PUBLICA IMPLEMENTADA (2026-10-17; PENDENTE CI/VALIDACAO)
+
+- **Estado real de origem:** main `85e086781b32431a35a03f663421ed26db8c752b`, CI `39073086918` SUCCESS 3/3, branch backup da T2 inalterada `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`; PR #4 aberto/bloqueado. T0–T4 validadas, P4.1 L1/L2 privados pendentes.
+- **T5 IMPLEMENTADA EM BRANCH:** novo `tests/security/homologacao-tres-areas.test.mjs` com cinco testes públicos e `docs/E-ARQ-T5-HOMOLOGACAO-PUBLICA.md`. Exercita fronteiras, arquivos físicos sem symlink, API monetária comum, runner allowlist e rejeição de caminhos arbitrários, manifesto SHA-256 v1, gates, npm e CODEOWNERS. Não move nem modifica fonte de produção, contratos v1, credenciais, Google Sheets ou Apps Script.
+- **Estado de aceite:** faltam CI PR/main e readback, portanto T5 **NÃO VALIDADA**. Esperado gate 26/26 (21 anteriores + 5), ponte 37/37, legado 35/35, Comum 2/2, pilotos Weine 18/18 e Casa 17/17. Falha ou falso PASS exige correção na própria T5.
+- **Pesos:** T5 0,50h inclusa no baseline 14,50h. Enquanto não validada, E-ARQ **80% concluída | 20% restante**, E-TEST ampliado **86,21% concluído | 13,79% restante**. Se validada, E-ARQ **90%/10%** e projeto **89,66%/10,34%**. Weine histórica 92,11% inalterada; E-INFRA-L2 adiada, P4.1 privada pendente.
+- **Drive:** ROADMAP E-TEST, HANDOFF e checkpoint receberam as atualizações de T4 com leitura confirmada no ciclo anterior; atualizar somente se T5 realmente validada e houver alteração factual, sem reescrever históricos.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-1. Verificar HEAD atual da `main`, PR #40 e seus CIs `39072699368`/`39072770519`, este fechamento documental, os caminhos da nova arquitetura, CI 3/3 e backup. Não repetir T0–T4 já validadas.
-2. Executar **T5 — Homologação pública da estrutura (0,50h)**: revisar invariantes e isolamento das três áreas, testar regressões e permissões, comprovar que a CI executa de fato os diretórios corretos, legado v1 e contrato de moeda compartilhado. Falha em gate é NO-GO; corrigir antes de dar T5 como validada.
-3. Após T5 realmente validada, atualizar roadmap geral, E-ARQ e HANDOFF com evidências e avançar T6 — documentação/transição. Evitar expansão artificial; novas funcionalidades exigem novo peso antes de código.
-4. Não alterar repositórios privados, fórmulas, IDs, Sheets, OAuth, histórico Git, PR #4 ou backup. P4.1 privada permanece pendente e E-INFRA-L2 adiada. Drive só deve ser atualizado outra vez se houver mudança real e readback.
+1. Inspecionar PR T5, os resultados reais dos três checks e diffs; corrigir quaisquer testes falhos na T5 sem desabilitar gate nem excluir testes anteriores. Conferir readback de main, fonte pinada, contrato v1 e backup.
+2. Se T5 VALIDADA por CI pós-merge e readback, atualizar ROADMAP principal, roadmap E-ARQ e HANDOFF com os pesos E-ARQ 90%/10% e E-TEST 89,66%/10,34%, e iniciar T6 — documentação/transição (0,50h), sem repetir T0–T5.
+3. Não alegar homologação privada, alterar dados/fórmulas/IDs financeiros, Apps Script, OAuth, refs históricas, PR #4 ou backup; P4.1 L1/L2 privada segue bloqueada. Atualizar o Drive somente com mudança comprovada e readback.
