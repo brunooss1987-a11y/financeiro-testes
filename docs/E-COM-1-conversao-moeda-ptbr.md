@@ -1,6 +1,6 @@
 # E-COM.1 — Conversao monetaria pt-BR no hub compartilhado
 
-**Status inicial:** em implementacao na branch `feature/e-com1-money-ptbr-shared-20261017`, aguardando revisao/PR/CI. Data: 2026-10-17.
+**Status final:** E-COM.1 VALIDADA como componente PUBLICO independente, sem integracao em motores privados. Data: 2026-10-17.
 
 ## Lacuna e decisao
 
@@ -41,3 +41,10 @@ O roadmap registrou a expansao **E-COM.1 (1,50h)** antes de adicionar o modulo e
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
 Examinar o diff e os logs do PR antes de alegar validacao; confirmar os 3 checks e os testes separados, integridade do somador demonstrativo e gate de publicacao. Somente apos CI do PR e da main aprovadas e readback registrar E-COM.1 VALIDADA no ROADMAP/HANDOFF. Sem copiar logica privada, acesso Google, OAuth, pagamento real ou alteracao de planilhas.
+
+
+## Evidencia final de aceite (2026-10-17)
+
+PR #30 incorporado a main em `0bc1d37ebed3b591ea37fb1ef067ac810d8ead1a`. CI do PR `39029684002`: tres checks SUCCESS, Gate de publicacao **20/20 PASS**, `PUBLIC_GUARD=PASS`, Weine **18/18 PASS** e Casa Santana **17/17 PASS**. CI pos-merge `39029728535`: tres checks COMPLETED SUCCESS. Readback na main confirmou o modulo, testes e README sem substituir os arquivos hashados do piloto anterior.
+
+E-COM.1 **100% concluida (1,50/1,50h)**. E-TEST **89,47% concluido (8,50/9,50h), 10,53% restante** na P4.1. Nenhuma demonstracao passou a ser homologacao privada. Adocao do utilitario em sistemas operacionais requer escopo e validacao privados independentes.
