@@ -262,3 +262,10 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **PROGRESSO DO ROADMAP:** T5 **100,00% concluída | 0% restante** (0,50/0,50h); E-ARQ **90,00% concluída | 10,00% restante** (4,50/5,00h); projeto E-TEST ampliado **89,66% concluído | 10,34% restante** (13,00/14,50h). Baseline inalterado 14,50h. Histórico Weine 19h/92,11% preservado; P4.1 1h privada e PR #4 bloqueado; E-INFRA-L2 adiada.
 
 **Próxima:** T6 — Documentação e transição de manutenção (0,50h), revisando guias operacionais e links após migração; preservar registros históricos, fontes e contratos. Não repetir T0–T5.
+
+
+## E-ARQ T6 — DOCUMENTAÇÃO E TRANSIÇÃO DE MANUTENÇÃO (2026-10-17; EXECUTADA EM BRANCH, VALIDAÇÃO PENDENTE)
+
+**Estado anterior confirmado:** T5 VALIDADA na `main` `a0c1085d10e0626d0a4291e9ac1690f3747b59cc`, CI `39073879857` SUCCESS 3/3; backup pré-migração no SHA original. **T6 IMPLEMENTADA EM BRANCH:** atualização do README principal e guias `weine/`, `casa-santana/` e `comum/`; atualização contextual (não destrutiva) da ADR-0002; novo `docs/E-ARQ-GUIA-MANUTENCAO.md` com comandos reais, isolamento por área, links verificados, governança, regressões e plano de backup. Não houve código financeiro, dado real, contrato ou CI alterado.
+
+**Peso T6 = 0,50h já previsto** no baseline ampliado 14,50h. **Ainda NÃO VALIDADA** até PR, CI do PR e pós-merge 3/3 e readback. Até então progresso E-ARQ **90,00% concluída | 10,00% restante** e projeto E-TEST **89,66% concluído | 10,34% restante**. Após comprovação de T6: E-ARQ **100,00%/0%**, projeto **93,10% concluído | 6,90% restante** (13,50/14,50h), unicamente P4.1 privada pendente. Histórico Weine 19h/92,11% inalterado, E-INFRA-L2 10–16h adiada, PR #4 bloqueado. Próxima ação: revisar autorização/evidência L1/L2 em ambiente privado, sem acesso implícito a infraestrutura ou fonte operacional.
