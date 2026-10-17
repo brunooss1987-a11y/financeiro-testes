@@ -54,7 +54,7 @@ A `main` já tem `tests/weine/*.test.mjs`, `tests/casa-santana/*.test.mjs`, `src
 | Subetapa | Esforço | Entrega obrigatória | Validação/aceite | Situação |
 |---|---:|---|---|---|
 | **T0 — Arquitetura, escopo e roadmap** | **0,75h** | Este roadmap, ADR-0002, referência no ROADMAP/HANDOFF principal | Diff só documental; CI 3/3 em PR e na main; readback | **VALIDADA** — PR #32 / CI 39069584418 e 39069630708 |
-| **T1 — Inventário e mapa de dependências** | **0,50h** | Matriz de todos os caminhos, imports, comandos e proprietários de arquivo existentes | Cobertura verificada dos caminhos de teste, CLI, docs e contratos; não omitir dependências | PENDENTE |
+| **T1 — Inventário e mapa de dependências** | **0,50h** | `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`: 52 arquivos e D01–D16 | Verificar 3 checks PR/main, readback; não mover código | **EXECUTADA EM LEITURA / PR E CI PENDENTES** |
 | **T2 — Backup e plano de migração reversível** | **0,75h** | Snapshot com HEAD, backup de branch/ref antes das mudanças estruturais, estratégia de rollback e tratamento versionado de v1/v2 | Backup verificável, integridade de `centavos-demo` e contratos originais, teste de restauração documental | PENDENTE |
 | **T3 — Criação e reorganização das três áreas** | **1,25h** | `weine/`, `casa-santana/`, `comum/` com fontes/testes públicos; preservação temporária dos caminhos v1 necessários | Imports coerentes, nenhuma fonte privada, compatibilidade demonstrativa preservada | PENDENTE |
 | **T4 — Atualização de runner, scripts e CI** | **0,75h** | `package.json`, runner e testes passam a aceitar os novos diretórios; jobs existentes mantidos | Gate de publicação e os mesmos 3 checks, sem permissões adicionais, sem download de privados | PENDENTE |
@@ -97,3 +97,10 @@ O novo percentual menor decorre exclusivamente da **expansão explícita de esco
 Após a publicação e validação de **T0**, iniciar **T1 — inventário e mapa de dependências** em leitura, começando pela HEAD real; não mover diretórios antes de **T2 — backup e rollback**. Documentar sempre o concluído, a fase, o projeto total, o restante e a próxima subetapa. Handoff do projeto termina obrigatoriamente com `PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO`.
 
 **PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO:** verificar PR e CI de T0 e o estado real da `main`; se validado, atualizar status e executar T1 sem repetir T0. Se algum check falhar, corrigir T0, sem executar alterações estruturais antecipadas.
+
+
+## E-ARQ T1 — Inventário executado, validação pendente (2026-10-17)
+
+Em leitura da `main` `fb849ef2547615ba042222fe1d2b829c55d90254`, a árvore Git foi verificada sem truncamento: **52 arquivos**, sendo 5 testes Weine, 5 Casa Santana, 2 segurança, 2 fontes compartilhadas, 6 ferramentas, 22 docs, 2 arquivos GitHub e 8 outros arquivos de raiz. O inventário detalhado e a matriz de 16 dependências constam de `docs/E-ARQ-T1-INVENTARIO-DEPENDENCIAS.md`. **Nenhuma migração, backup ou alteração de código executada nesta etapa.**
+
+**Estado:** T1 EXECUTADA/documentada, **ainda NÃO VALIDADA** até a CI do PR, merge, CI da main e readback. Após aprovação: E-ARQ 1,25/5h = 25% concluído / 75% restante, E-TEST ampliado 9,75/14,5h = 67,24% concluído / 32,76% restante. Até lá permanecem os percentuais validados anteriores T0 (15% e 63,79%). **Próxima etapa T2 — backup e plano reversível (0,75h)**, após aprovação da T1.
