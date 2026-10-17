@@ -1,6 +1,6 @@
 # E-ARQ T5 — Homologação pública da estrutura de três áreas
 
-**Data:** 2026-10-17. **Peso:** 0,50h JÁ INCLUÍDO nas 5h E-ARQ. **Estado:** testes de homologação ADICIONADOS em branch; pendente CI PR, merge, CI main e readback — NÃO VALIDADA ainda.
+**Data:** 2026-10-17. **Peso:** 0,50h JÁ INCLUÍDO nas 5h E-ARQ. **Estado final:** **T5 VALIDADA na main**, mediante PR, CI PR/main e readback comprovados. Não autoriza inferir validação L1/L2 de sistemas privados.
 
 ## Origem e limites
 
@@ -27,6 +27,12 @@ Até validação T5: fase E-ARQ **4,00/5,00h = 80,00% concluída | 20,00% restan
 
 **Depois da validação (e somente depois):** T5 **0,50/0,50h = 100%**, E-ARQ **4,50/5,00h = 90,00% concluída | 10,00% restante**, projeto E-TEST ampliado **13,00/14,50h = 89,66% concluído | 10,34% restante**. T6 de documentação 0,50h e P4.1 privada 1h permanecem pendentes. Histórico Weine 92,11% inalterado. Não há expansão de escopo.
 
+## Evidência conclusiva da T5 (2026-10-17)
+
+PR #42 incorporado à `main` no commit público `27383adaa750c942c9c03eafcea68eefdef4c690`. CI do PR [39073599636](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39073599636) e CI pós-merge [39073659211](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39073659211) **COMPLETED SUCCESS 3/3**. Gate **26/26** (21 originais + cinco testes T5; prova T3 37/37 incluída), legado **35/35**, Comum **2/2**, pilotos Weine **18/18** e Casa Santana **17/17**, scanner `PUBLIC_GUARD=PASS`. Readback da `main` confirmou arquivo T5, manifesto, somador fictício, piloto e comprovante v1 intactos; branch de backup ainda no SHA `53a4a6eba6ada83b4bcee1f28824257799bfa4b0`.
+
+**PROGRESSO DO ROADMAP:** T5 **0,50/0,50h = 100,00% concluída | 0% restante**; fase E-ARQ **4,50/5,00h = 90,00% concluída | 10,00% restante**; projeto E-TEST+E-ARQ **13,00/14,50h = 89,66% concluído | 10,34% restante**. Baseline mantido 14,50h; resta T6 0,50h e P4.1 privada 1h. Nenhuma expansão nova.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-Verificar resultado efetivo do PR T5 e CI de seus três checks, corrigir falhas sem reduzir o conjunto de testes. Após merge, verificar CI 3/3 da `main`, ler os cinco testes e os contratos/readbacks e atualizar ROADMAP/HANDOFF para marcar T5 validada. Próxima T6 — documentação e transição (0,50h). Não repetir T0–T4 nem criar novos recursos fora de escopo.
+Na próxima retomada verificar PR #42, as duas CIs, readback e este registro; não repetir T5. Executar T6 — documentação e transição de manutenção (0,50h), corrigindo textos operacionais obsoletos e preparando guia por área sem alterar os motores privados ou a evidência histórica.
