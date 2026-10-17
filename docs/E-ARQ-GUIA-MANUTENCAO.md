@@ -1,6 +1,6 @@
 # E-ARQ — Guia de manutenção do hub público
 
-**Referência:** arquitetura Weine / Casa Santana / Comum, T0–T5 validadas; T6 em validação. Este guia descreve o repositório **público** `financeiro-testes`, não os motores privados.
+**Referência atual (2026-10-17):** arquitetura Weine / Casa Santana / Comum, **E-ARQ T0–T6 validadas na main**. A manutenção segue o processo por PR e três checks públicos. Este guia descreve o repositório **público** `financeiro-testes`, não os motores privados.
 
 ## Onde colocar um componente
 
@@ -42,4 +42,4 @@ A E-ARQ usa peso total **5,00h** e integra o baseline ampliado E-TEST **14,50h**
 - [ADR-0002](ADR-0002-tres-areas-monorepo.md), [relatório T5](E-ARQ-T5-HOMOLOGACAO-PUBLICA.md)
 - [SECURITY](../SECURITY.md), [contrato E-COM.1](E-COM-1-conversao-moeda-ptbr.md)
 
-**Próxima ação sujeita à verificação:** validar T6 no PR e pós-merge, sincronizar ROADMAP/HANDOFF/checkpoint no Drive com readback e preservar P4.1 privada sem prometer homologação inexistente.
+**Próxima ação sujeita à verificação:** confirmar o fechamento E-ARQ nos ROADMAPs, HANDOFF e Drive, e verificar exclusivamente autorização e infraestrutura para P4.1 L1/L2 privada. Se não houver autorização/ambiente privado, permanecer bloqueada sem tentar atalhos.

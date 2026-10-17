@@ -1,7 +1,7 @@
 # ADR-0002 — Áreas autônomas Weine, Casa Santana e Comum
 
 **Data:** 2026-10-17
-**Estado:** decisão T0 VALIDADA; implantação T1–T5 VALIDADA na main, T6 EM DOCUMENTAÇÃO nesta etapa. A seção 'Contexto' descreve a situação anterior à migração.
+**Estado atual:** decisão e implantação **T0–T6 VALIDADAS na main** em 2026-10-17. A seção 'Contexto' descreve a situação anterior à migração.
 
 ## Contexto
 
