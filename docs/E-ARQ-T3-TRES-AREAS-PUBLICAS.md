@@ -1,6 +1,6 @@
 # E-ARQ T3 — Implantação física inicial das três áreas públicas
 
-**Data:** 2026-10-17. **Etapa:** T3, esforço **1,25h**, já previsto no roadmap E-ARQ de 5h. **Estado nesta branch:** IMPLEMENTADA, validação pendente do PR, CI em PR/main e readback. **Não houve expansão adicional.**
+**Data:** 2026-10-17. **Etapa:** T3, esforço **1,25h**, já previsto no roadmap E-ARQ de 5h. **Estado final:** T3 **IMPLEMENTADA E VALIDADA NA MAIN**; PR, CI e readback comprovados. **Não houve expansão adicional.**
 
 ## 1. Pré-condições GO confirmadas
 
@@ -64,6 +64,12 @@ comum/
 - Projeto E-TEST+E-ARQ, baseline 14,50h: **11,75/14,50h = 81,03% concluído | 18,97% restante**.
 - Histórico Weine F0–F16 15h e histórico de 19h/92,11% INALTERADOS; P4.1 L1/L2 privada pendente, E-INFRA-L2 adiada.
 
+## 6. Evidências finais de aceite (2026-10-17)
+
+PR #38 incorporado à `main` no commit público `c650cb5c4b60ac7e29d6f6daeed7c25ec9f3d3c6`. CI inicial `39071904094` FALHOU no teste novo por herança do contexto Node; correção do isolamento de ambiente no próprio PR, sem enfraquecer o gate. CI corrigida do PR [39071966858](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39071966858) e CI pós-merge da `main` [39072023519](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39072023519): **COMPLETED/SUCCESS 3/3**. Gate com **21/21** testes, incluindo ponte de execução **37/37** nos novos diretórios, Weine original **18/18**, Casa Santana original **17/17**, `PUBLIC_GUARD=PASS`. Readback confirmou as três áreas (`weine/` 7 arquivos, `casa-santana/` 7, `comum/` 3), 73 arquivos públicos no total, e blob IDs originais de manifesto v1, fonte hashada, piloto, prova, runner e workflow, sem alteração. A referência `backup/e-arq-t2-pre-migracao-20261017` continua apontando ao SHA pré-migração.
+
+**PROGRESSO VALIDADO:** T3 **1,25/1,25h = 100% concluída | 0% restante**; E-ARQ **3,25/5,00h = 65,00% concluída | 35,00% restante**; projeto E-TEST ampliado **11,75/14,50h = 81,03% concluído | 18,97% restante**. Sem expansão adicional nem mudança do baseline 14,50h. A T4 continua pendente, responsável por atualizar o runner e npm para executar as novas áreas diretamente.
+
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
-Revisar o diff, CI PR/main e readback do backup e das três áreas; **somente então** registrar T3 validada. Próxima **T4 — atualização controlada de runner, npm, CI e governança (0,75h)**. Não remover a prova v1 nem alterar o contrato SHA silenciosamente; qualquer falha real deve ser corrigida na própria T3 antes de avançar.
+Rever a main, PR #38, CI do PR e pós-merge, três áreas e backup, sem repetir T3. **Próxima T4 — runner/npm/CI/governança (0,75h)**, migrando a descoberta das duas suítes para os diretórios próprios e preservando o comprovante público v1 e três checks. Qualquer falha demanda correção antes de alegar T4 validada.
