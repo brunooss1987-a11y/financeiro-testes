@@ -355,3 +355,17 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 1. Na retomada, conferir SHA real da `main`, PR #44 e fechamento de T6, CIs, readback do ROADMAP/guia/HANDOFF, backup e progresso E-ARQ 100%. Não repetir T0–T6 validadas.
 2. **P4.1 — PENDÊNCIA EXTERNA 1h:** verificar disponibilidade de ambiente PRIVADO autorizado e evidências de proveniência L1/L2 para cada sistema. Sem acesso/autorização privada explicitamente permitida, manter como **BLOQUEADA**, PR #4 não mesclável, e solicitar providência humana. Não emitir gatilhos repetitivos sem trabalho concreto.
 3. Preservar E-INFRA-L2 adiada e não incorporada, motores privados/planilhas/fórmulas/IDs, credenciais, histórico, backup e três checks. Novas funcionalidades requerem expansão formal prévia de escopo; Drive só com escrita autorizada e confirmação por leitura.
+
+
+## E-RES.1 — IMPLEMENTACAO PUBLICA CONCLUIDA E VALIDADA (2026-10-17)
+
+- **ESCOPO:** novo classificador 100% sintetico e original `tools/public-uncertainty-demo.mjs` e suite negativa/positiva `tests/security/public-uncertainty-demo.test.mjs`; sempre `allowAutomaticRetry=false`, `allowWrite=false`, `provesPayment=false`. Sem imports de codigo privado nem dependencias Google, rede ou disco.
+- **PROVA:** PR #46 MERGED em `6ea13f1efa560a1b17e1608d4bed15ef7840bf78`. CI PR run 39084157008 COMPLETED SUCCESS 3/3 e CI main run 39084196711 COMPLETED SUCCESS 3/3; Gate de publicacao e pilotos Weine/Casa Santana aprovados. Diff revisto e readback de modulo, teste e ROADMAP da main. CI publica nao comprova executabilidade de fonte privada, pagamentos nem L1/L2.
+- **ESCOPO E PESOS:** expansao E-RES.1 +1,00h registrada no ROADMAP antes do codigo, elevando baseline de 14,50h para 15,50h. E-RES.1 1/1h validada; total E-TEST ampliado 14,50/15,50h = 93,55% concluido e 6,45% restante. E-ARQ 5/5h = 100%; historico Weine 19h/92,11% inalterado. P4.1 privada 1,00h continua nao validada, PR #4 bloqueado; E-INFRA-L2 10–16h adiada e fora do baseline.
+- **SEGURANCA:** sem alteracao de planilhas, formulas, IDs, Apps Script, repositorios privados, workflow, tres checks, manifesto v1 ou backup. Fonte publica nao e integracao funcional a motor financeiro real.
+
+## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
+
+1. Verificar incorporacao do PR documental, CI 3/3, readback dos dois documentos GitHub e sincronizacao dos Docs de ROADMAP/HANDOFF/checkpoint no Drive; nao duplicar entrada se ja validada.
+2. Consultar se a matriz consolidada de candidatos de publicabilidade P4.1 ja existe em registro privado. Se faltar, consolidar apenas a classificacao documental, sem importar/codificar fontes privadas; avaliar requisitos L1/L2 apenas em ambiente autorizado.
+3. Manter PR #4 bloqueado, E-INFRA-L2 adiada, baselines Weine intocados, e nao atribuir mais progresso sem validacao nova ou expansao formal.
