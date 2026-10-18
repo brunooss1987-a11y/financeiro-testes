@@ -278,3 +278,14 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **PROGRESSO DO ROADMAP:** T6 **100,00% concluída | 0% restante** (0,50/0,50h); fase E-ARQ **100,00% concluída | 0% restante** (5,00/5,00h); projeto total E-TEST+E-ARQ **93,10% concluído | 6,90% restante** (13,50/14,50h). Baseline de 14,50h permanece; nenhuma expansão adicional. Histórico Weine F0–F16 15h/100% e total 19h/92,11% preservados.
 
 **ÚNICA PENDÊNCIA DO E-TEST AMPLIADO:** P4.1 — atestação **privada** L1/L2 (1,00h) NÃO VALIDADA. O PR #4 permanece ABERTO/BLOQUEADO, não mesclar sem identificação/proveniência e testes privados em ambiente isolado autorizado. E-INFRA-L2 10–16h segue ADIADA e fora do baseline. Os testes públicos não demonstram integridade, homologação E2E ou autorização sobre arquivos privados. A próxima ação é verificação de condições reais e autorização para P4.1; sem isso, interromper operações que dependam de ambiente privado.
+
+
+## EXPANSAO FORMAL E-RES.1 — REJEICAO DE REPLAY INCERTO EM EXEMPLO PUBLICO (2026-10-17; ANTES DO CODIGO)
+
+**Escopo novo e independente de P4.1:** criar um modulo demonstrativo original, exclusivamente publico/sintetico, de classificacao fail-closed para resultados incertos de operacoes ficticias, acompanhado de testes negativos no Gate de publicacao ja existente. O exemplo deve impedir retry ou confirmacao automatica quando o resultado for desconhecido, negar entradas nao reconhecidas e nao mutar argumentos. Sem copia, adaptacao literal ou importacao de fontes dos repositorios privados; sem rede, filesystem, OAuth, planilhas, Apps Script ou execucao financeira.
+
+**Esforco E-RES.1 estimado: 1,00 hora (expansao).** Baseline vigente do E-TEST ampliado **14,50h** com **13,50h validadas = 93,10%**. Antes da implementacao, novo baseline **15,50h** (14,50+1,00), com **13,50/15,50h = 87,10% concluido | 12,90% restante**. Apos E-RES.1 validada (1,00h), **14,50/15,50h = 93,55% concluido | 6,45% restante** (P4.1 privada permanece 1,00h pendente). A reducao temporaria do percentual e exclusivamente mudanca declarada de baseline, nao retrabalho. E-ARQ 5/5h 100%; Weine F0–F16 original 15h/100% e historica 19h/92,11% inalteradas; E-INFRA-L2 10–16h segue ADIADA e nao incorporada.
+
+**Status inicial: PLANEJADA, NAO IMPLEMENTADA NEM VALIDADA.** Aceite: codigo 100% sintetico, API sem side effects, testes positivos/negativos independentes no Gate publico, CI nos 3 jobs sem mudanca de permissao, PR e revisao do diff, CI branch e main 3/3, readback e comprovacao documental. Nenhuma alegacao de L1/L2, L3, L4 ou homologacao financeira real. P4.1 e PR #4 seguem bloqueados.
+
+**PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO:** implementar o demonstrador E-RES.1 em branch, testar o gate e confirmar PR/CI antes de validar qualquer hora; nao mesclar se houver alerta ou regressao.
