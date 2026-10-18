@@ -289,3 +289,12 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **Status inicial: PLANEJADA, NAO IMPLEMENTADA NEM VALIDADA.** Aceite: codigo 100% sintetico, API sem side effects, testes positivos/negativos independentes no Gate publico, CI nos 3 jobs sem mudanca de permissao, PR e revisao do diff, CI branch e main 3/3, readback e comprovacao documental. Nenhuma alegacao de L1/L2, L3, L4 ou homologacao financeira real. P4.1 e PR #4 seguem bloqueados.
 
 **PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO:** implementar o demonstrador E-RES.1 em branch, testar o gate e confirmar PR/CI antes de validar qualquer hora; nao mesclar se houver alerta ou regressao.
+
+
+## E-RES.1 — VALIDADA EM CI PUBLICA (2026-10-17)
+
+**Status VALIDADA (1,00/1,00h):** expansao formal registrada antes do codigo na branch; PR #46 incorporado a main no commit publico `6ea13f1efa560a1b17e1608d4bed15ef7840bf78`. CI do PR run **39084157008** = SUCCESS nos 3 jobs Gate de publicacao, Piloto weine e Piloto casa-santana. CI pos-merge main run **39084196711** = SUCCESS nos mesmos 3 jobs. Diff revisto (apenas ROADMAP e dois novos arquivos sinteticos); readback na main confirmou `tools/public-uncertainty-demo.mjs`, `tests/security/public-uncertainty-demo.test.mjs` e expansao original. Nenhuma fonte financeira privada foi copiada, alterada, executada ou publicada. As verificacoes confirmam somente comportamento do exemplo publico, NAO pagamentos, Apps Script ou L1/L2.
+
+**PROGRESSO PONDERADO:** E-RES.1 **100,00% concluida | 0,00% restante** (1,00/1,00h). E-ARQ continua 100% (5,00/5,00h). E-TEST ampliado com E-RES.1 **14,50/15,50h = 93,55% concluido | 6,45% restante**. O baseline foi explicitamente ampliado de 14,50h para 15,50h antes da implementacao. P4.1 L1/L2 privada continua **1,00h PENDENTE/BLOQUEADA**; PR #4 permanece nao mesclado, E-INFRA-L2 adiada. Historico Weine 19h/92,11% e F0–F16 inicial 15h/100% preservados.
+
+**PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO:** confirmar incorporacao do PR documental deste fechamento, CI final 3/3, ler ROADMAP/HANDOFF na main e sincronizar ROADMAP/HANDOFF/checkpoint no Drive com readback. Em seguida verificar matriz de publicabilidade da P4.1, sem executar fontes privadas e sem abrir nova expansao sem baseline formal.
