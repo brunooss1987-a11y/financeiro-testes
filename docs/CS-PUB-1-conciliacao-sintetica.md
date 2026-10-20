@@ -44,3 +44,16 @@ Verificar HEAD da branch pública e se os controles históricos continuam presen
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
 Verificar HEAD, diff e checks atuais do PR #48, resolver eventuais mudanças concorrentes em `main`; após aprovação de segurança, mesclar e confirmar 3/3 checks na `main`, ler os arquivos publicados e registrar CS-PUB.1 como validada **somente no escopo sintético público**. Integrar contratos reais, se necessário, exclusivamente no repositório privado, sob ADV/backup/testes de homologação.
+
+
+## CS-PUB.1 — VALIDADA NA MAIN (conclusão pública)
+
+**Validação concluída exclusivamente para o laboratório sintético público.** O [PR #48](https://github.com/brunooss1987-a11y/financeiro-testes/pull/48) foi incorporado à `main` no commit `3b028f738c57baf5cd1da0369acec0faf0b1f46f`. CI do PR após documentação: run [39350035949](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39350035949) = 3/3 SUCCESS. CI pós-merge da `main`: run [39350133121](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39350133121) = 3/3 SUCCESS (Gate, Piloto Casa Santana e Piloto Weine). Ambos registraram jobs efetivos, não somente status de fila.
+
+**Readback da `main`:** módulo sintético publicado e 20 novos testes presentes; `weine/src/index.mjs` e `comum/src/index.mjs` têm blobs idênticos à versão-base anterior; os blobs do contrato `local-integrity/v1` e sua fonte permanecem idênticos aos anteriores. Segurança de publicação da CI aprovou; nenhum dado, token, planilha, Apps Script ou módulo financeiro privado foi inserido.
+
+**Estado da trilha independente CS-PUB.1:** **VALIDADA 1,50/1,50h (100% do seu escopo público)**. Não alterar o histórico Weine ou o E-TEST (15,50h; P4.1 privada pendente). A suíte pública permanece demonstrativa e não prova homologação bancária ou autorização de gravação.
+
+## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
+
+Após validar esta nota documental na CI e reler a `main`, atualizar a issue privada Casa Santana com a referência à prova pública. No repositório privado, começar por reler o estado do PR #630 e do gateway ADV; preparar contrato de integração/validação sobre dados **sintéticos** antes de qualquer teste de escrita autorizado. Não executar deploy nem mudar planilha ou PDS/controle financeiro por simples sucesso da CI pública.
