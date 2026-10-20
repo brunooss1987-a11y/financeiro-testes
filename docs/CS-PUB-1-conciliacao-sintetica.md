@@ -29,3 +29,18 @@ Criar módulo JS puro original sob `casa-santana/src/`, com testes inteiramente 
 ## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
 
 Verificar HEAD da branch pública e se os controles históricos continuam presentes. Implementar apenas módulo e testes sintéticos desta etapa, sem alterar os testes de contratos históricos além dos cenários de Casa Santana no arquivo escolhido. Depois criar PR, verificar checks e rever segurança antes de merge.
+
+
+## Evidência da implementação e validação do PR público
+
+**IMPLEMENTADO NA BRANCH / CI DO PR VALIDADA** (ainda não é homologação privada). No PR [#48](https://github.com/brunooss1987-a11y/financeiro-testes/pull/48), a implementação original de `casa-santana/src/conciliacao-remuneracao-ficticia.mjs` foi acompanhada de **20 novos testes sintéticos** adicionados a `casa-santana/tests/limites-sinteticos.test.mjs`. Os cinco filenames originais permaneceram; `tests/security/areas-publicas.test.mjs` passou a exigir 57/57 na ponte T3 (antes 37/37), sem relaxar as assertivas.
+
+**Executado e validado pelo GitHub Actions público:** run [39349864098](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39349864098) = `completed/success`, jobs reais com steps e logs: Gate de publicação **38/38**, Piloto Casa Santana **37/37** (17 anteriores + 20 novos), Piloto Weine **18/18**, `PUBLIC_GUARD=PASS`; zero testes falhos. Execução associada à HEAD do PR `ca19a7aa3970d5b1ef0c477e1b057dd441bebb7d`. O gate também executou as regressões legadas e Comum. Nenhuma permissão, workflow, arquivo Weine/Comum, Apps Script ou dado real foi modificado.
+
+**Revisão de diffs:** seis caminhos esperados: `ROADMAP.md`, `casa-santana/README.md`, módulo novo, teste da Casa, este documento e ajuste da contagem exata no gate T3. Sem arquivos/IDs/URLs privados, credenciais ou checkouts privados. O verificador do repositório é uma defesa adicional, não prova universal de ausência de segredo.
+
+**Estado dessa leitura:** o código passou **na CI do PR**; merge, CI na `main` e leitura pós-merge continuam pendentes até evidência. Não equivale a E2E, quitação bancária, ligação ao sistema privado ou autorização para escrever em planilha.
+
+## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
+
+Verificar HEAD, diff e checks atuais do PR #48, resolver eventuais mudanças concorrentes em `main`; após aprovação de segurança, mesclar e confirmar 3/3 checks na `main`, ler os arquivos publicados e registrar CS-PUB.1 como validada **somente no escopo sintético público**. Integrar contratos reais, se necessário, exclusivamente no repositório privado, sob ADV/backup/testes de homologação.
