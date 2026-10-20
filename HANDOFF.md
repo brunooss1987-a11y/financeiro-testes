@@ -386,3 +386,19 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 3. Quando a CI/main e o readback forem comprovados, registrar CS-PUB.1 como validada **somente no nível de testes sintéticos públicos** (1,50/1,50h), atualizar ROADMAP/HANDOFF sem reescrever histórico e preservar Weine/E-TEST 15,50h/P4.1.
 4. No repositório privado Casa Santana, verificar PR #630 e adaptar resultados da prova pública a um gate de integração fechado; não copiar motor privado para público, não homologar planilha real por CI pública e não escrever registros até ADV, backup e E2E privado.
 5. Preservar PR público #4/P4.1 bloqueado e E-INFRA-L2 adiada. Evitar duplicar operações ou criar loops de documentação.
+
+
+## CS-PUB.1 — CONCLUSAO CONFIRMADA COM CI POS-MERGE (19/10/2026)
+
+- **COMPROVADO:** PR público #48 incorporado à main em `3b028f738c57baf5cd1da0369acec0faf0b1f46f`. CI do HEAD do PR após documentação `39350035949`: SUCCESS 3/3. CI da main após merge `39350133121`: SUCCESS 3/3. Gate, piloto Weine e piloto Casa Santana executaram steps reais e passaram. Guard de publicação passou, 20 cenários novos da Casa e gate T3 de 57 casos mantidos.
+- **READBACK:** `casa-santana/src/conciliacao-remuneracao-ficticia.mjs` publicado na `main`, 20 testes presentes no arquivo original; Weine, Comum, manifesto `local-integrity/v1` e fonte de centavos histórica com blobs anteriores preservados.
+- **PROGRESSO FINAL:** CS-PUB.1 **VALIDADA somente no nível sintético público** (1,50/1,50h = 100%). E-TEST histórico 15,50h, pendência privada P4.1, Weine e E-INFRA-L2 adiada sem alterações. Código genérico não executa rede, Sheets, Apps Script ou escrita financeira.
+- **NÃO HOMOLOGADO:** PR #630 privado, dados e salários reais, baixa faltante de setembro, compensação econômica de antecipação, gateway ADV, serviços de produção ou testes E2E privados. Nenhuma dessas operações foi executada nesta etapa.
+- **DOCUMENTAÇÃO FINAL:** esta seção é o registro de encerramento a validar em PR documental isolado; após CI/readback da main, avançar à próxima ação privada sem transferir dados.
+
+## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
+
+1. Confirmar que o PR documental da CS-PUB.1 está na `main` com os três checks públicos SUCCESS e ler novamente ROADMAP/HANDOFF; não repetir testes já validados.
+2. Registrar na issue #629 privada do Casa Santana o resultado sintético público (PR #48, duas CIs 3/3, readback), sem dados financeiros, sem copiar motor privado para público.
+3. No repositório privado Casa Santana, verificar o estado real do PR #630 e do gateway ADV antes de adaptar a integração. Implementar apenas o próximo componente privado autorizado, com provas de competência/caixa e de pagamentos parciais, mantendo o acesso ao ambiente de produção desligado até backup, writer validado e E2E.
+4. Preservar todos os marcos Weine/E-TEST, o PR #4 público bloqueado e E-INFRA-L2 adiada; não confundir o laboratório gratuito com implantação financeira.
