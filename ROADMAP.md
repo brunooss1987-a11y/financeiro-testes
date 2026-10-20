@@ -298,3 +298,19 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 **PROGRESSO PONDERADO:** E-RES.1 **100,00% concluida | 0,00% restante** (1,00/1,00h). E-ARQ continua 100% (5,00/5,00h). E-TEST ampliado com E-RES.1 **14,50/15,50h = 93,55% concluido | 6,45% restante**. O baseline foi explicitamente ampliado de 14,50h para 15,50h antes da implementacao. P4.1 L1/L2 privada continua **1,00h PENDENTE/BLOQUEADA**; PR #4 permanece nao mesclado, E-INFRA-L2 adiada. Historico Weine 19h/92,11% e F0–F16 inicial 15h/100% preservados.
 
 **PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO:** confirmar incorporacao do PR documental deste fechamento, CI final 3/3, ler ROADMAP/HANDOFF na main e sincronizar ROADMAP/HANDOFF/checkpoint no Drive com readback. Em seguida verificar matriz de publicabilidade da P4.1, sem executar fontes privadas e sem abrir nova expansao sem baseline formal.
+
+
+## CS-PUB.1 — EXPANSAO ESPECIFICA CASA SANTANA (19/10/2026; ANTES DO CODIGO)
+
+**Estado: PLANEJADA, ainda não validada.** O usuario autorizou usar `financeiro-testes` como laboratorio publico de testes sinteticos para Casa Santana e Weine, mantendo os motores reais privados. Criar modulo generico original para conciliacao de remuneracao, pagamentos parciais e antecipacoes no dominio `casa-santana/`, SEM copiar fonte privada nem dados financeiros. Plano/criterios em [CS-PUB.1](docs/CS-PUB-1-conciliacao-sintetica.md).
+
+**Estimativa incremental Casa Santana:** **1,50h, trilha independente**, nao misturar com baseline historico E-TEST+E-ARQ+E-RES.1 (15,50h), P4.1 privada ou progresso Weine. Acoes planejadas: contrato sintético puro (sem acesso, escrita, rede ou segredos), testes no arquivo de suite ja existente (nao ampliar a lista fixa T5), PR, revisao de diff, CI publica 3/3 e readback. **Nenhum teste real nem publicacao efetiva neste momento.** Nao tocar dados/fonte/planilha operacional nem o PR #4 bloqueado.
+
+
+## CS-PUB.1 — IMPLEMENTADA EM BRANCH E VALIDADA NA CI DO PR (19/10/2026)
+
+- **PLANEJADA (antes do código):** expansão de 1,50h independente dos baselines Weine/E-TEST e do PR #4, conforme `docs/CS-PUB-1-conciliacao-sintetica.md`.
+- **IMPLEMENTADA:** rotina original pura em `casa-santana/src/conciliacao-remuneracao-ficticia.mjs` e 20 cenários fictícios acrescentados ao arquivo de testes existente. O gate T3 ainda exige contagem **exata** (agora 57 em vez de 37). Nenhum motor privado, documento, token, OAuth, dado pessoal, planilha ou Apps Script foi copiado, acessado ou alterado.
+- **VALIDADA NA CI DO PR:** [PR #48](https://github.com/brunooss1987-a11y/financeiro-testes/pull/48), run [39349864098](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39349864098), **3/3 SUCCESS**, com execução real: Gate **38/38** e guard `PUBLIC_GUARD=PASS`, Piloto Weine **18/18**, Piloto Casa Santana **37/37**. Preservadas regressões legado/Comum, scanner e permissões `contents: read`.
+- **NÃO VALIDADA AINDA:** CI pós-merge na main, leitura de retorno, homologação privada e integração com pagamento real. Não atribuir 1,50h como concluída antes de PR mesclado + CI na main + readback. O baseline E-TEST permanece 15,50h (14,50h validadas, P4.1 privada 1h bloqueada).
+- **Próxima ação sujeita a verificação:** rever HEAD e diff do PR #48, CI atual (após commits documentais), mesclar somente com checks e inspeção de segurança, e confirmar CI/main 3/3 antes de registrar validação pública completa. Não alterar motor financeiro privado nem PR #4.

@@ -18,7 +18,7 @@ const files = suites.flatMap(area => [
 ].map(name => join(area, 'tests', name)));
 files.push(join('comum', 'tests', 'moeda-ptbr.test.mjs'));
 
-test('E-ARQ T3: as tres areas executam 37 casos publicos sem substituir suite v1', () => {
+test('E-ARQ T3: as tres areas executam 57 casos publicos sem substituir suite v1', () => {
   for (const file of files) {
     const stat = lstatSync(join(root, file));
     assert.ok(stat.isFile() && !stat.isSymbolicLink(), 'Arquivo publico ausente ou inseguro');
@@ -44,7 +44,7 @@ test('E-ARQ T3: as tres areas executam 37 casos publicos sem substituir suite v1
   assert.equal(run.error, undefined, 'Execucao da estrutura falhou');
   assert.equal(run.signal, null, 'Execucao da estrutura interrompida');
   assert.equal(run.status, 0, 'Novas areas precisam passar todos os testes');
-  assert.match(run.stdout, /# tests 37(?:\r?\n|$)/u, 'Contagem das areas inesperada');
-  assert.match(run.stdout, /# pass 37(?:\r?\n|$)/u, 'Algum teste publico nao passou');
+  assert.match(run.stdout, /# tests 57(?:\r?\n|$)/u, 'Contagem das areas inesperada');
+  assert.match(run.stdout, /# pass 57(?:\r?\n|$)/u, 'Algum teste publico nao passou');
   assert.match(run.stdout, /# fail 0(?:\r?\n|$)/u, 'Falhas nao podem ser ignoradas');
 });

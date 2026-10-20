@@ -369,3 +369,20 @@ Objetivo: piloto publico de CI compartilhada para testes OFFLINE autorizados de 
 1. Verificar incorporacao do PR documental, CI 3/3, readback dos dois documentos GitHub e sincronizacao dos Docs de ROADMAP/HANDOFF/checkpoint no Drive; nao duplicar entrada se ja validada.
 2. Consultar se a matriz consolidada de candidatos de publicabilidade P4.1 ja existe em registro privado. Se faltar, consolidar apenas a classificacao documental, sem importar/codificar fontes privadas; avaliar requisitos L1/L2 apenas em ambiente autorizado.
 3. Manter PR #4 bloqueado, E-INFRA-L2 adiada, baselines Weine intocados, e nao atribuir mais progresso sem validacao nova ou expansao formal.
+
+
+## CS-PUB.1 — NOVA TRILHA CASA SANTANA EM BRANCH PUBLICA (19/10/2026)
+
+- **ESCOPO DEFINIDO ANTES DE IMPLEMENTAR:** `docs/CS-PUB-1-conciliacao-sintetica.md`, trilha independente 1,50h da Casa Santana (não altera progresso Weine, E-TEST 15,50h, P4.1 privada ou E-INFRA-L2 adiada).
+- **IMPLEMENTADO SOMENTE NO PR PUBLICO #48:** branch `feature/casa-pagamentos-sinteticos-20261019`, módulo original e somente leitura `casa-santana/src/conciliacao-remuneracao-ficticia.mjs`, 20 novos cenários fictícios em um dos cinco arquivos existentes de `casa-santana/tests/`, pequena mudança no gate T3 de 37/37 para 57/57, documentação. Arquivos Weine, Comum, fontes privadas, workflow e manifesto histórico v1 **não foram modificados**.
+- **TESTADO E VALIDADO NO PR:** run `39349864098` (código anterior aos commits finais de documentação) = 3/3 SUCCESS com steps e logs; gate 38/38, piloto Casa 37/37 e Weine 18/18, `PUBLIC_GUARD=PASS`. A ponte T3 verificou as 57 execuções da área nova e Comum; gates antigos preservados.
+- **NÃO EXECUTADO/NÃO VALIDADO:** merge, CI `main` pós-merge, ligação ao Apps Script privado, pagamento parcial real, sincronização PDS/TRX, planilha Google, comprovantes, operações bancárias ou homologação ADV. Não confundir sucesso de testes públicos com aprovação de escrita financeira privada.
+- **RISCO/CONTROLE:** repositório público tem histórico prévio com referências técnicas antigas já documentadas; o novo diff foi restrito a 6 arquivos sem dados/URLs/IDs operacionais ou credenciais. O guard não examina integralmente históricos/forks. Preservar PR #4 privado bloqueado e ref backup, sem migrations.
+
+## PROXIMA ACAO A EXECUTAR - SUJEITA A VERIFICACAO
+
+1. Conferir HEAD do PR público #48 (e da `main`) após os commits documentais, diff completo e resultado dos 3 checks correntes. Não usar o sucesso do run antigo para representar validação de um commit mais recente.
+2. Com Gate de publicação, Weine e Casa Santana `SUCCESS` no mesmo HEAD, mesclar o PR público sem mudar Weine/Comum; confirmar 3/3 no commit de `main` e readback do módulo/testes/docs.
+3. Quando a CI/main e o readback forem comprovados, registrar CS-PUB.1 como validada **somente no nível de testes sintéticos públicos** (1,50/1,50h), atualizar ROADMAP/HANDOFF sem reescrever histórico e preservar Weine/E-TEST 15,50h/P4.1.
+4. No repositório privado Casa Santana, verificar PR #630 e adaptar resultados da prova pública a um gate de integração fechado; não copiar motor privado para público, não homologar planilha real por CI pública e não escrever registros até ADV, backup e E2E privado.
+5. Preservar PR público #4/P4.1 bloqueado e E-INFRA-L2 adiada. Evitar duplicar operações ou criar loops de documentação.
