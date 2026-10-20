@@ -314,3 +314,12 @@ Referência inicial: `main` em `f23bc46e63835291ba44974496fee5747e546302`, CI `3
 - **VALIDADA NA CI DO PR:** [PR #48](https://github.com/brunooss1987-a11y/financeiro-testes/pull/48), run [39349864098](https://github.com/brunooss1987-a11y/financeiro-testes/actions/runs/39349864098), **3/3 SUCCESS**, com execução real: Gate **38/38** e guard `PUBLIC_GUARD=PASS`, Piloto Weine **18/18**, Piloto Casa Santana **37/37**. Preservadas regressões legado/Comum, scanner e permissões `contents: read`.
 - **NÃO VALIDADA AINDA:** CI pós-merge na main, leitura de retorno, homologação privada e integração com pagamento real. Não atribuir 1,50h como concluída antes de PR mesclado + CI na main + readback. O baseline E-TEST permanece 15,50h (14,50h validadas, P4.1 privada 1h bloqueada).
 - **Próxima ação sujeita a verificação:** rever HEAD e diff do PR #48, CI atual (após commits documentais), mesclar somente com checks e inspeção de segurança, e confirmar CI/main 3/3 antes de registrar validação pública completa. Não alterar motor financeiro privado nem PR #4.
+
+
+## CS-PUB.1 — VALIDADA NA MAIN: 1,50/1,50h (19/10/2026)
+
+- **PR #48 incorporado:** commit público `3b028f738c57baf5cd1da0369acec0faf0b1f46f`. **CI do PR:** run `39350035949` = SUCCESS 3/3. **CI da main pós-merge:** run `39350133121` = SUCCESS 3/3, com execução real de Gate de publicação, Piloto Casa Santana e Piloto Weine.
+- **Readback da main:** módulo público original em `casa-santana/src/conciliacao-remuneracao-ficticia.mjs`; 20 testes novos no arquivo existente da Casa; gate T3 aumentado de 37 para 57 casos mantendo correspondência exata; `Weine`, `Comum` e arquivos pinados do manifesto `local-integrity/v1` sem alterações de blob.
+- **Progresso específico:** **CS-PUB.1 = 100% validada no escopo sintético público**, 1,50/1,50h; trilha separada do E-TEST 15,50h (14,50h validadas/P4.1 privada pendente), E-INFRA-L2 adiada e histórico Weine inalterado.
+- **NÃO VALIDADO/NÃO EXECUTADO:** Apps Script e Google Sheets reais, fonte e PR privados, gateway ADV, antecipações efetivas, registro/alteração de pagamentos, deployment e homologação financeira E2E. CI pública valida exclusivamente fixtures fictícias e funcionamento de seu próprio runner.
+- **Próxima ação sujeita à verificação:** após aprovar a nota documental final, registrar evidência na issue de Casa Santana e prosseguir, no repositório privado, com integração controlada a partir do PR #630 e gateway ADV. Não mover código operacional para o público.
